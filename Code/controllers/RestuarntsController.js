@@ -24,4 +24,35 @@ function getEthnicResturant(request,respond){
         }
     })
 }
-module.exports = {getAllResturantDetails,getEthnicResturant};
+function getResturantRateDESC(request,respond){
+    restuarntsDetailsDB.getResturantRateDESC(function(error,result){
+        if(error){
+            respond.json(error);
+        }
+        else{
+            respond.json(result);
+        }
+    })
+}
+function getResturantRateASC(request,respond){
+    restuarntsDetailsDB.getResturantRateASC(function(error,result){
+        if(error){
+            respond.json(error);
+        }
+        else{
+            respond.json(result);
+        }
+    })
+}
+function getRestaurantByAlphabeticalOrder(request,respond){
+    restuarntsDetailsDB. getRestaurantByAlphabeticalOrder(function(error,result){
+        if(error){
+            respond.json(error);
+        }
+        else{
+            respond.json(result);
+        }
+    })
+}
+
+module.exports = {getAllResturantDetails,getEthnicResturant,getResturantRateDESC,getResturantRateASC,getRestaurantByAlphabeticalOrder};

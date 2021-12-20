@@ -8,14 +8,14 @@ class UserProfileDB{
         db.query(sql,callback)
     }
     addUseProfile(Userprofile,callback){
-        var sql = "INSERT INTO userprofiledata(UserName, FirstName, LastName, Gender, Address, PhoneNumber, Email, PassWord, UserProfilePictures) VALUES(?,?,?,?,?,?,?,?,?)"
+        var sql = "INSERT INTO userprofiledata(UserName, FirstName, LastName, Gender, Address, PhoneNumber, Email, PassWord, UserProfilePictures, UserDescription, UserWallpaper) VALUES(?,?,?,?,?,?,?,?,?,?,?)"
         db.query(sql,[Userprofile.getUserName() ,Userprofile.getFirstName(), Userprofile.getLastName(), Userprofile.getGender()
-            , Userprofile.getAddress(), Userprofile.getPhoneNumber(), Userprofile.getEmail(),Userprofile.getPassWord(), Userprofile. getUserProfilePictures()], callback);
+            , Userprofile.getAddress(), Userprofile.getPhoneNumber(), Userprofile.getEmail(),Userprofile.getPassWord(), Userprofile. getUserProfilePictures(),Userprofile. getUserDescription(),Userprofile.getUserWallpaper()], callback);
     }
     UpdateUserProfile(UpdateUser,callback){
-        var sql = "UPDATE userprofiledata SET UserName = ?, FirstName = ?, LastName = ?, Gender = ?, Address = ?, PhoneNumber = ?, Email = ?, PassWord = ?, UserProfilePictures = ? WHERE UserID = ?";
+        var sql = "UPDATE userprofiledata SET UserName = ?, FirstName = ?, LastName = ?, Gender = ?, Address = ?, PhoneNumber = ?, Email = ?, PassWord = ?, UserProfilePictures = ?, UserDescription = ?,UserWallpaper = ? WHERE UserID = ?";
         return db.query(sql,[UpdateUser.getUserName() ,UpdateUser.getFirstName(), UpdateUser.getLastName(), UpdateUser.getGender()
-            , UpdateUser.getAddress(), UpdateUser.getPhoneNumber(), UpdateUser.getEmail(), UpdateUser.getPassWord(), UpdateUser. getUserProfilePictures(), UpdateUser.getUserID()], callback);
+            , UpdateUser.getAddress(), UpdateUser.getPhoneNumber(), UpdateUser.getEmail(), UpdateUser.getPassWord(), UpdateUser. getUserProfilePictures(),UpdateUser.getUserDescription(),UpdateUser.getUserWallpaper(), UpdateUser.getUserID()], callback);
     }
     DeleteUserProfile(DeleteUser,callback){
         var sql = "DELETE from userprofiledata WHERE UserID = ?";

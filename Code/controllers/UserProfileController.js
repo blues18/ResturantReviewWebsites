@@ -17,7 +17,8 @@ function getAllUserProfile(request,respond){
 }
 function addUserProfile(request,respond){
     var userdetails = new Userdetails(null, request.body.UserName, request.body.FirstName, request.body.LastName, request.body.Gender
-        , request.body.Address, request.body.PhoneNumber, request.body.Email,request.body.PassWord, request.body.UserProfilePictures);
+        , request.body.Address, request.body.PhoneNumber, request.body.Email,request.body.PassWord, request.body.UserProfilePictures, 
+        request.body.UserDescription, request.body.UserWallpaper);
     userprofileDB.addUseProfile(userdetails, function(error,result){
         if(error){
             respond.json(error);
@@ -29,7 +30,8 @@ function addUserProfile(request,respond){
 };
 function UpdateUserProfile(request,respond){
     var updateUserProfile = new Userdetails(parseInt(request.params.id),request.body.UserName, request.body.FirstName, request.body.LastName, request.body.Gender
-    , request.body.Address, request.body.PhoneNumber, request.body.Email, request.body.PassWord, request.body.UserProfilePictures);
+    , request.body.Address, request.body.PhoneNumber, request.body.Email, request.body.PassWord, request.body.UserProfilePictures, 
+    request.body.UserDescription, request.body.UserWallpaper);
     userprofileDB.UpdateUserProfile(updateUserProfile, function(error,result){
         if(error){
             respond.json(error);
