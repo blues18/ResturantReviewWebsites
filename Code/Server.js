@@ -23,6 +23,7 @@ app.route('/EthnicRestaurant/:ethnic').get(restuarntsController.getEthnicRestura
 app.route('/RestaurantRatingInDESC').get(restuarntsController.getResturantRateDESC)//get resturant in Descending order W3schools
 app.route('/RestaurantRatingInASC').get(restuarntsController.getResturantRateASC)//get resturant in ascending order W3schools
 app.route('/RestaurantInAlphabeticalOrder').get(restuarntsController.getRestaurantByAlphabeticalOrder)//get Restaurant in alphabetical order
+app.route('/RestaurantSearch/:Search').get(restuarntsController.getRestaurantBySearch)
 //////////////////////////////////////////
 app.route('/UserAuth').post(userprofileController.GetUserAuth)
 app.route('/SingleAuth').post(userprofileController.SingleAuth)

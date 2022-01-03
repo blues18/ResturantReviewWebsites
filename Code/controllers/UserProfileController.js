@@ -65,7 +65,7 @@ function GetCertainUser(request,respond){
 }
 
 function GetUserAuth(request,respond){
-    var loginAuth = new Userdetails(request.body.UserName,request.body.PassWord)
+    var loginAuth = new Userdetails(request.body.UserName,request.body.PassWord)//might be missing parseINT(request.params.Update)
     userprofileDB.GetUserAuth(loginAuth, function(error,result){
         if(error){
             respond.json(error);

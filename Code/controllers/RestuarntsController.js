@@ -54,5 +54,15 @@ function getRestaurantByAlphabeticalOrder(request,respond){
         }
     })
 }
-
-module.exports = {getAllResturantDetails,getEthnicResturant,getResturantRateDESC,getResturantRateASC,getRestaurantByAlphabeticalOrder};
+function getRestaurantBySearch(request,respond){
+    var restaurantSearch = request.params.Search;
+    restuarntsDetailsDB.getRestaurantBySearch(restaurantSearch,function(error,result){
+        if(error){
+            respond.json(error);
+        }
+        else{
+            respond.json(result);
+        }
+    })
+}
+module.exports = {getAllResturantDetails,getEthnicResturant,getResturantRateDESC,getResturantRateASC,getRestaurantByAlphabeticalOrder,getRestaurantBySearch};

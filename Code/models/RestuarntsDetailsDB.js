@@ -22,5 +22,9 @@ class RestuarntsDetailsDB{
         var sql ="SELECT * FROM restaurantdetails ORDER BY RestaurantTitle ASC";
         return db.query(sql,callback);
     }
+    getRestaurantBySearch(Search,callback){
+        var sql ="SELECT * FROM restaurantdetails WHERE RestaurantTitle = ?";
+        return db.query(sql,[Search],callback);
+    }
 }
 module.exports = RestuarntsDetailsDB;
