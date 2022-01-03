@@ -11,14 +11,14 @@ app.use(express.json());
 
 app.route('/AllRestauarnts').get(restuarntsController.getAllResturantDetails);//get restuarnt details
 app.route('/AllReviewed').get(reviewedController.getALLReviewed);// get reviewed details
-app.route('/Reviewed').post(reviewedController.addReview)//post the reviewed Userside forgien key might need to have an ideal
-app.route('/Reviewed/:id').put(reviewedController.updateReview)//pu te updateed review comment on the id of the existing
-app.route('/Reviewed/:id').delete(reviewedController.deleteReview)//deleting the reviewed based on id
+app.route('/ADDReviewed').post(reviewedController.addReview)//post the reviewed Userside forgien key might need to have an ideal
+app.route('/ReviewedUpdate/:id').put(reviewedController.updateReview)//pu te updateed review comment on the id of the existing
+app.route('/ReviewedDelete/:id').delete(reviewedController.deleteReview)//deleting the reviewed based on id
 app.route('/AllUserProfile').get(userprofileController.getAllUserProfile)// Get all userpofile details on sql databased
-app.route('/UserProfile').post(userprofileController.addUserProfile)//postto add new user 
-app.route('/UserProfile/:id').put(userprofileController.UpdateUserProfile)// put for updating the user profile details
-app.route('/UserProfile/:id').delete(userprofileController.DeleteUserProfile)// Delete the user profile details based on the existing id
-app.route('/UserProfile/:Password').get(userprofileController.GetCertainUser)//Get the user Profile based on password (login)
+app.route('/AddUser').post(userprofileController.addUserProfile)//postto add new user 
+app.route('/UpdateUser/:id').put(userprofileController.UpdateUserProfile)// put for updating the user profile details
+app.route('/DeleteUser/:id').delete(userprofileController.DeleteUserProfile)// Delete the user profile details based on the existing id
+app.route('/Login/:Password').get(userprofileController.GetCertainUser)//Get the user Profile based on password (login)
 app.route('/EthnicRestaurant/:ethnic').get(restuarntsController.getEthnicResturant)//Get resturant starting with ethnic groups
 app.route('/RestaurantRatingInDESC').get(restuarntsController.getResturantRateDESC)//get resturant in Descending order W3schools
 app.route('/RestaurantRatingInASC').get(restuarntsController.getResturantRateASC)//get resturant in ascending order W3schools
