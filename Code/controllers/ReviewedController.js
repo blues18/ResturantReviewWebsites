@@ -31,7 +31,7 @@ function addReview(request,respond){
 };
 function updateReview(request,respond){
     var now = new Date();
-    var updateReview =new Reviewed(parseInt(request.params.id), request.body.RestuarntsReviewID, request.body.ReviewUserID, request.body.ReviewTitle, request.body.ReviewResturantsName, request.body.Ratings, request.body.RatingPrice,
+    var updateReview =new Reviewed(parseInt(request.params.Update), request.body.RestuarntsReviewID, request.body.ReviewUserID, request.body.ReviewTitle, request.body.ReviewResturantsName, request.body.Ratings, request.body.RatingPrice,
     request.body.RatingFood, request.body.RatingService, request.body.ReviewComment, request.body.ReviewPhoto, request.body.ReviewRestuarntHyperLink
     ,request.body.ReviewByUserName, now.toString());
     ReviewedDB.updateReview(updateReview,function(error,result){
@@ -44,7 +44,7 @@ function updateReview(request,respond){
     })
 };
 function deleteReview(request,respond){
-    var ReviewID = request.params.id;
+    var ReviewID = request.params.Delete;
     ReviewedDB.deleteReview(ReviewID, function(error,results){
         if (error){
             respond.json(error);

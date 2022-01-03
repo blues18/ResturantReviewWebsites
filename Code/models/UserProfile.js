@@ -35,7 +35,7 @@ class Userprofile{
         getAddress(){
             return this.Address;
         }
-        getPhoneNumber(){
+        getPhoneNumber(){ 
             return this.PhoneNumber;
         }
         getEmail(){

@@ -7,8 +7,6 @@ class RestuarntsReviewDB{
         var sql = "SELECT * FROM restuarntsdb.reviewrestaurant";
         db.query(sql,callback);
     }
-
-
     addReview(Reviewed,callback){
         var sql = "INSERT INTO reviewrestaurant(ReviewResturantsID,ReviewUserID, ReviewTitle, ReviewRestaurantName,Ratings, RatingPrice, RatingFood, RatingService, ReviewComment, ReviewPhoto, ReviewRestuarntHyperLink, ReviewByUserName, DatePost) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)";
         db.query(sql,[Reviewed.getReviewResturantsID(),Reviewed.getReviewUserID(), Reviewed.getReviewTitle(), Reviewed.getReviewResturantsName(), Reviewed.getRatings(), Reviewed.getRatingsPrice(), Reviewed.getRatingFood(), Reviewed.getRatingService(), Reviewed. getReviewComment(), Reviewed.getReviewPhoto()

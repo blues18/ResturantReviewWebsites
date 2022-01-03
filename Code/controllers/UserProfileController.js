@@ -1,5 +1,5 @@
 "use strict"
-const { json } = require('express/lib/response');
+const { json, send } = require('express/lib/response');
 const Userdetails = require('../models/UserProfile');
 const UserProfileDB = require('../models/UserProfileDB');
 
@@ -29,7 +29,7 @@ function addUserProfile(request,respond){
     })
 };
 function UpdateUserProfile(request,respond){
-    var updateUserProfile = new Userdetails(parseInt(request.params.id),request.body.UserName, request.body.FirstName, request.body.LastName, request.body.Gender
+    var updateUserProfile = new Userdetails(parseInt(request.params.Update),request.body.UserName, request.body.FirstName, request.body.LastName, request.body.Gender
     , request.body.Address, request.body.PhoneNumber, request.body.Email, request.body.PassWord, request.body.UserProfilePictures, 
     request.body.UserDescription, request.body.UserWallpaper);
     userprofileDB.UpdateUserProfile(updateUserProfile, function(error,result){
@@ -63,10 +63,11 @@ function GetCertainUser(request,respond){
         }
     });
 }
-function GetUserUsingMultiplePlaceHolders(request,respond){
-    var getuserwithmutiple = request.params.login;
-    userprofileDB.GetUserUsingMultiplePlaceHolders(getuserwithmutiple, function(error,result){
-        if (error){
+
+function GetUserAuth(request,respond){
+    var loginAuth = new Userdetails(request.body.UserName,request.body.PassWord)
+    userprofileDB.GetUserAuth(loginAuth, function(error,result){
+        if(error){
             respond.json(error);
         }
         else{
@@ -74,5 +75,15 @@ function GetUserUsingMultiplePlaceHolders(request,respond){
         }
     });
 }
-
-module.exports={getAllUserProfile,addUserProfile,UpdateUserProfile,DeleteUserProfile,GetCertainUser,GetUserUsingMultiplePlaceHolders};
+function SingleAuth(request,respond){
+    var SingleLog = new Userdetails(request.body.UserName)
+    userprofileDB.SingleAuth(SingleLog,function(error,result){
+        if(error){
+            respond.json(error);
+        }
+        else{
+            respond.json(result);
+        }
+    });
+}
+module.exports={getAllUserProfile,addUserProfile,UpdateUserProfile,DeleteUserProfile,GetCertainUser,GetUserAuth,SingleAuth};
