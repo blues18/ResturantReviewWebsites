@@ -1,7 +1,9 @@
 "use strict"
 
 var db=require('../data-based-connection');
+const RestuarntsReviewDB = require('./RestuarntsReviewDB');
 const Userprofile = require('./UserProfile');
+const USERAuthentications = require('./UserAUTH');
 class UserProfileDB{
     getAllUserProfile(callback){
         var sql = "SELECT * FROM restuarntsdb.userprofiledata";    
@@ -25,14 +27,15 @@ class UserProfileDB{
         var sql = "SELECT * FROM userprofiledata WHERE PassWord = ?";
         return db.query(sql,[getuser],callback);
     }
-    //testing new login method
-    GetUserAuth(UserAuth,callback){
-        var sql = "SELECT UserName, PassWord FROM userprofiledata WHERE UserName = ? AND PassWord = ?";
+    //Multiple placeholders
+    GetUserUsingMultiplePlaceHolders(getMutiple,callback){
+        var sql = "SELECT UserName, PassWord FROM userprofiledata";
+        return db.query(sql,[getMutiple],callback);
+    }
+    GetUserAuthentications(UserAuth,callback){
+        var sql = "SELECT * From userprofiledata WHERE UserName = ? AND PassWord = ?";
         return db.query(sql,[UserAuth.getUserName(),UserAuth.getPassWord()],callback);
-    }
-    SingleUserAuth(SingleAuth,callback){
-        var sql = "SELECT UserName FROM userprofiledata WHERE UserName = ?";
-        return db.query(sql,[SingleAuth.getUserName()],callback);
-    }
+        
+    } 
 }
 module.exports=UserProfileDB;

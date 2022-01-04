@@ -2,6 +2,9 @@
 const { json, send } = require('express/lib/response');
 const Userdetails = require('../models/UserProfile');
 const UserProfileDB = require('../models/UserProfileDB');
+const Userlog = require('../models/UserAUTH');
+
+
 
 var userprofileDB = new UserProfileDB();
 
@@ -75,9 +78,10 @@ function GetUserAuth(request,respond){
         }
     });
 }
-function SingleAuth(request,respond){
-    var SingleLog = new Userdetails(request.body.UserName)
-    userprofileDB.SingleAuth(SingleLog,function(error,result){
+
+function GetUserAuthentications(request,respond){
+    var UserAuth = new Userlog(request.body.UserName,request.body.PassWord);
+    userprofileDB.GetUserAuthentications(UserAuth, function(error,result){
         if(error){
             respond.json(error);
         }
@@ -86,4 +90,5 @@ function SingleAuth(request,respond){
         }
     });
 }
-module.exports={getAllUserProfile,addUserProfile,UpdateUserProfile,DeleteUserProfile,GetCertainUser,GetUserAuth,SingleAuth};
+
+module.exports={getAllUserProfile,addUserProfile,UpdateUserProfile,DeleteUserProfile,GetCertainUser,GetUserUsingMultiplePlaceHolders,GetUserAuthentications};

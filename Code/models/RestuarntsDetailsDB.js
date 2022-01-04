@@ -28,3 +28,5 @@ class RestuarntsDetailsDB{
     }
 }
 module.exports = RestuarntsDetailsDB;
+
+//how to store images ?
