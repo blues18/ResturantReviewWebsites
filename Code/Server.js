@@ -24,7 +24,8 @@ app.route('/RestaurantRatingInDESC').get(restuarntsController.getResturantRateDE
 app.route('/RestaurantRatingInASC').get(restuarntsController.getResturantRateASC)//get resturant in ascending order W3schools
 app.route('/RestaurantInAlphabeticalOrder').get(restuarntsController.getRestaurantByAlphabeticalOrder)//get Restaurant in alphabetical order
 //////////////////////////////////////////
-app.route('/UserProfile/:login').get(userprofileController.GetUserUsingMultiplePlaceHolders)
+app.route('/UserProfile/login').get(userprofileController.GetUserUsingMultiplePlaceHolders)
+app.route('/UserAuth').post(userprofileController.GetUserAuthentications)
 
 
 app.listen(8080, () => console.log("web servr running @ http://127.0.0.1:8080")); 

@@ -2,6 +2,9 @@
 const { json } = require('express/lib/response');
 const Userdetails = require('../models/UserProfile');
 const UserProfileDB = require('../models/UserProfileDB');
+const Userlog = require('../models/UserAUTH');
+
+
 
 var userprofileDB = new UserProfileDB();
 
@@ -75,4 +78,16 @@ function GetUserUsingMultiplePlaceHolders(request,respond){
     });
 }
 
-module.exports={getAllUserProfile,addUserProfile,UpdateUserProfile,DeleteUserProfile,GetCertainUser,GetUserUsingMultiplePlaceHolders};
+function GetUserAuthentications(request,respond){
+    var UserAuth = new Userlog(request.body.UserName,request.body.PassWord);
+    userprofileDB.GetUserAuthentications(UserAuth, function(error,result){
+        if(error){
+            respond.json(error);
+        }
+        else{
+            respond.json(result);
+        }
+    });
+}
+
+module.exports={getAllUserProfile,addUserProfile,UpdateUserProfile,DeleteUserProfile,GetCertainUser,GetUserUsingMultiplePlaceHolders,GetUserAuthentications};
