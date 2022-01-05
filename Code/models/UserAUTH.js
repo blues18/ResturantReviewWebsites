@@ -14,7 +14,7 @@ class USERAuthentications{
     }
     //Set method 
     setUserName(){
-         this.UserName=UserName;
+        this.UserName=UserName;
     }
     setPassWord(){
         this.PassWord=PassWord;

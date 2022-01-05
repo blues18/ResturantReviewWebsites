@@ -4,6 +4,7 @@ var db=require('../data-based-connection');
 const RestuarntsReviewDB = require('./RestuarntsReviewDB');
 const Userprofile = require('./UserProfile');
 const USERAuthentications = require('./UserAUTH');
+const { NULL } = require('mysql/lib/protocol/constants/types');
 class UserProfileDB{
     getAllUserProfile(callback){
         var sql = "SELECT * FROM restuarntsdb.userprofiledata";    
@@ -12,7 +13,7 @@ class UserProfileDB{
     addUseProfile(Userprofile,callback){
         var sql = "INSERT INTO userprofiledata(UserName, FirstName, LastName, Gender, Address, PhoneNumber, Email, PassWord, UserProfilePictures, UserDescription, UserWallpaper) VALUES(?,?,?,?,?,?,?,?,?,?,?)"
         db.query(sql,[Userprofile.getUserName() ,Userprofile.getFirstName(), Userprofile.getLastName(), Userprofile.getGender()
-            , Userprofile.getAddress(), Userprofile.getPhoneNumber(), Userprofile.getEmail(),Userprofile.getPassWord(), Userprofile. getUserProfilePictures(),Userprofile. getUserDescription(),Userprofile.getUserWallpaper()], callback);
+            , Userprofile.getAddress(), Userprofile.getPhoneNumber(), Userprofile.getEmail(),Userprofile.getPassWord(), Userprofile. getUserProfilePictures(),null,null], callback);
     }
     UpdateUserProfile(UpdateUser,callback){
         var sql = "UPDATE userprofiledata SET UserName = ?, FirstName = ?, LastName = ?, Gender = ?, Address = ?, PhoneNumber = ?, Email = ?, PassWord = ?, UserProfilePictures = ?, UserDescription = ?,UserWallpaper = ? WHERE UserID = ?";

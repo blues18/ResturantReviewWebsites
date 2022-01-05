@@ -45,7 +45,7 @@ function UpdateUserProfile(request,respond){
     });
 }
 function DeleteUserProfile(request,respond){
-    var Deleteuserid = request.params.id;
+    var Deleteuserid = request.params.Delete;
     userprofileDB.DeleteUserProfile(Deleteuserid, function(error,result){
         if(error){
             respond.json(error);
@@ -67,18 +67,6 @@ function GetCertainUser(request,respond){
     });
 }
 
-function GetUserAuth(request,respond){
-    var loginAuth = new Userdetails(request.body.UserName,request.body.PassWord)//might be missing parseINT(request.params.Update)
-    userprofileDB.GetUserAuth(loginAuth, function(error,result){
-        if(error){
-            respond.json(error);
-        }
-        else{
-            respond.json(result);
-        }
-    });
-}
-
 function GetUserAuthentications(request,respond){
     var UserAuth = new Userlog(request.body.UserName,request.body.PassWord);
     userprofileDB.GetUserAuthentications(UserAuth, function(error,result){
@@ -91,4 +79,4 @@ function GetUserAuthentications(request,respond){
     });
 }
 
-module.exports={getAllUserProfile,addUserProfile,UpdateUserProfile,DeleteUserProfile,GetCertainUser,GetUserUsingMultiplePlaceHolders,GetUserAuthentications};
+module.exports={getAllUserProfile,addUserProfile,UpdateUserProfile,DeleteUserProfile,GetCertainUser,GetUserAuthentications};
