@@ -25,9 +25,11 @@ function addUserProfile(request,respond){
     userprofileDB.addUseProfile(userdetails, function(error,result){
         if(error){
             respond.json(error);
+            
         }
         else{
             respond.json(result);
+            
         }
     })
 };
@@ -55,17 +57,6 @@ function DeleteUserProfile(request,respond){
         }
     });
 }
-function GetCertainUser(request,respond){
-    var getuser = request.params.Password;
-    userprofileDB.GetCertainUser(getuser, function(error,result){
-        if(error){
-            respond.json(error);
-        }
-        else{
-            respond.json(result);
-        }
-    });
-}
 
 function GetUserAuthentications(request,respond){
     var UserAuth = new Userlog(request.body.UserName,request.body.PassWord);
@@ -79,4 +70,4 @@ function GetUserAuthentications(request,respond){
     });
 }
 
-module.exports={getAllUserProfile,addUserProfile,UpdateUserProfile,DeleteUserProfile,GetCertainUser,GetUserAuthentications};
+module.exports={getAllUserProfile,addUserProfile,UpdateUserProfile,DeleteUserProfile,GetUserAuthentications};

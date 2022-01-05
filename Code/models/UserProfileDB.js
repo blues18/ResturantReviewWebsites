@@ -1,7 +1,6 @@
 "use strict"
 
 var db=require('../data-based-connection');
-const RestuarntsReviewDB = require('./RestuarntsReviewDB');
 const Userprofile = require('./UserProfile');
 const USERAuthentications = require('./UserAUTH');
 const { NULL } = require('mysql/lib/protocol/constants/types');
@@ -24,15 +23,7 @@ class UserProfileDB{
         var sql = "DELETE from userprofiledata WHERE UserID = ?";
         return db.query(sql,[DeleteUser],callback);
     }
-    GetCertainUser(getuser,callback){
-        var sql = "SELECT * FROM userprofiledata WHERE PassWord = ?";
-        return db.query(sql,[getuser],callback);
-    }
     //Multiple placeholders
-    GetUserUsingMultiplePlaceHolders(getMutiple,callback){
-        var sql = "SELECT UserName, PassWord FROM userprofiledata";
-        return db.query(sql,[getMutiple],callback);
-    }
     GetUserAuthentications(UserAuth,callback){
         var sql = "SELECT * From userprofiledata WHERE UserName = ? AND PassWord = ?";
         return db.query(sql,[UserAuth.getUserName(),UserAuth.getPassWord()],callback);

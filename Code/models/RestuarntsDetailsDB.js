@@ -1,15 +1,16 @@
 "use strict";
 
 var db = require('../data-based-connection');
+const RestaurantCuisines = require('./RestaurntsCuisines');
 class RestuarntsDetailsDB{
     getAllResturantDetails(callback){
         var sql = "SELECT * FROM restuarntsdb.restaurantdetails";
         db.query(sql,callback);     
     }
-    getEthnicResturant(ethnic,callback){
+    getCuisinesResturant(ethnic,callback){
         var sql = "SELECT * FROM restaurantdetails WHERE EthnicRestaurant = ?";
-        return db.query(sql,[ethnic],callback);
-        } 
+        return db.query(sql,[ethnic.getEthnicRestaurant()],callback);
+    } 
     getResturantRateDESC(callback){
         var sql ="SELECT * FROM restaurantdetails ORDER BY Ratings DESC";
         return db.query(sql,callback);
@@ -24,7 +25,7 @@ class RestuarntsDetailsDB{
     }
     getRestaurantBySearch(Search,callback){
         var sql ="SELECT * FROM restaurantdetails WHERE RestaurantTitle = ?";
-        return db.query(sql,[Search],callback);
+        return db.query(sql,[Search.getRestaurantTitle()],callback);
     }
 }
 module.exports = RestuarntsDetailsDB;

@@ -18,14 +18,12 @@ app.route('/AllUserProfile').get(userprofileController.getAllUserProfile)// Get 
 app.route('/AddUser').post(userprofileController.addUserProfile)//postto add new user 
 app.route('/UpdateUser/:Update').put(userprofileController.UpdateUserProfile)// put for updating the user profile details
 app.route('/DeleteUser/:Delete').delete(userprofileController.DeleteUserProfile)// Delete the user profile details based on the existing id
-app.route('/Login/:Password').get(userprofileController.GetCertainUser)//Get the user Profile based on password (login)
-app.route('/EthnicRestaurant/:ethnic').get(restuarntsController.getEthnicResturant)//Get resturant starting with ethnic groups
+app.route('/EthnicRestaurant').post(restuarntsController.getCuisinesResturant)//Get resturant starting with ethnic groups
 app.route('/RestaurantRatingInDESC').get(restuarntsController.getResturantRateDESC)//get resturant in Descending order W3schools
 app.route('/RestaurantRatingInASC').get(restuarntsController.getResturantRateASC)//get resturant in ascending order W3schools
 app.route('/RestaurantInAlphabeticalOrder').get(restuarntsController.getRestaurantByAlphabeticalOrder)//get Restaurant in alphabetical order
-app.route('/RestaurantSearch/:Search').get(restuarntsController.getRestaurantBySearch)//get Restaurant name/title by search
+app.route('/RestaurantSearch').post(restuarntsController.getRestaurantBySearch)//get Restaurant name/title by search
 app.route('/UserAuth').post(userprofileController.GetUserAuthentications)//get user info from login Username/Password
-
 //////////////////////////////////////////
 
 app.listen(8080, () => console.log("web servr running @ http://127.0.0.1:8080")); 

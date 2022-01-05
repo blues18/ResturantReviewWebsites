@@ -1,5 +1,8 @@
-"use strict";
+"use strict"
+const { json } = require('express/lib/response');
 const RestuarntsDetailsDB = require('../models/RestuarntsDetailsDB'); //file path
+const RestaurantCuisines = require('../models/RestaurntsCuisines'); //file path for Cuisines
+const RestaurantSEARCH = require('../models/RestaurantSEARCH'); // file path for search constructor 
 
 var restuarntsDetailsDB = new RestuarntsDetailsDB();
 
@@ -13,9 +16,9 @@ function getAllResturantDetails(request, respond){
         }
     });
 }
-function getEthnicResturant(request,respond){
-    var resturantethnic = request.params.ethnic; 
-    restuarntsDetailsDB.getEthnicResturant(resturantethnic,function(error,result){
+function getCuisinesResturant(request,respond){
+    var resturantethnic = new RestaurantCuisines(request.body.EthnicRestaurant);
+    restuarntsDetailsDB.getCuisinesResturant(resturantethnic,function(error,result){
         if(error){
             respond.json(error);
         }
@@ -55,7 +58,7 @@ function getRestaurantByAlphabeticalOrder(request,respond){
     })
 }
 function getRestaurantBySearch(request,respond){
-    var restaurantSearch = request.params.Search;
+    var restaurantSearch = new RestaurantSEARCH(request.body.RestaurantTitle);
     restuarntsDetailsDB.getRestaurantBySearch(restaurantSearch,function(error,result){
         if(error){
             respond.json(error);
@@ -65,4 +68,4 @@ function getRestaurantBySearch(request,respond){
         }
     })
 }
-module.exports = {getAllResturantDetails,getEthnicResturant,getResturantRateDESC,getResturantRateASC,getRestaurantByAlphabeticalOrder,getRestaurantBySearch};
+module.exports = {getAllResturantDetails,getCuisinesResturant,getResturantRateDESC,getResturantRateASC,getRestaurantByAlphabeticalOrder,getRestaurantBySearch};
