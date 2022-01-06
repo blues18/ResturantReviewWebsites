@@ -25,6 +25,7 @@ app.route('/RestaurantInAlphabeticalOrder').get(restuarntsController.getRestaura
 app.route('/RestaurantSearch').post(restuarntsController.getRestaurantBySearch)//get Restaurant name/title by search
 app.route('/UserAuth').post(userprofileController.GetUserAuthentications)//get user info from login Username/Password
 //////////////////////////////////////////
+
 app.listen(8080, () => console.log("web servr running @ http://127.0.0.1:8080")); 
 
 //MAKE SURE TO ctrl C to restart the server.js (node server.js)
