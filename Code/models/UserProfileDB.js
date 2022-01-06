@@ -25,9 +25,10 @@ class UserProfileDB{
     }
     //Multiple placeholders
     GetUserAuthentications(UserAuth,callback){
-        var sql = "SELECT * From userprofiledata WHERE UserName = ? AND PassWord = ?";
-        return db.query(sql,[UserAuth.getUserName(),UserAuth.getPassWord()],callback);
+        var sql = "SELECT * FROM userprofiledata WHERE UserName = ?";
+        return db.query(sql,[UserAuth],callback);
         
-    } 
+    }
+    ////////////////////////////////////   
 }
 module.exports=UserProfileDB;
