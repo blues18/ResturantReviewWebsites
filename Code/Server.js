@@ -22,6 +22,7 @@ app.route('/EthnicRestaurant').post(restuarntsController.getCuisinesResturant)//
 app.route('/RestaurantRatingInDESC').get(restuarntsController.getResturantRateDESC)//get resturant in Descending order W3schools
 app.route('/RestaurantRatingInASC').get(restuarntsController.getResturantRateASC)//get resturant in ascending order W3schools
 app.route('/RestaurantInAlphabeticalOrder').get(restuarntsController.getRestaurantByAlphabeticalOrder)//get Restaurant in alphabetical order
+app.route('/RestaurantInAlphabeticalDESCOrder').get(restuarntsController.getRestaurantByAlphabeticalOrderDESC)//get Restaurant in alphabetical order DESCENDING
 app.route('/RestaurantSearch').post(restuarntsController.getRestaurantBySearch)//get Restaurant name/title by search
 app.route('/UserAuth').post(userprofileController.GetUserAuthentications)//get user info from login Username/Password
 //////////////////////////////////////////

@@ -57,6 +57,17 @@ function getRestaurantByAlphabeticalOrder(request,respond){
         }
     })
 }
+function getRestaurantByAlphabeticalOrderDESC(request,respond){
+    restuarntsDetailsDB. getRestaurantByAlphabeticalOrderDESC(function(error,result){
+        if(error){
+            respond.json(error);
+        }
+        else{
+            respond.json(result);
+        }
+    })
+}
+
 function getRestaurantBySearch(request,respond){
     var restaurantSearch = new RestaurantSEARCH(request.body.RestaurantTitle);
     restuarntsDetailsDB.getRestaurantBySearch(restaurantSearch,function(error,result){
@@ -68,4 +79,4 @@ function getRestaurantBySearch(request,respond){
         }
     })
 }
-module.exports = {getAllResturantDetails,getCuisinesResturant,getResturantRateDESC,getResturantRateASC,getRestaurantByAlphabeticalOrder,getRestaurantBySearch};
+module.exports = {getAllResturantDetails,getCuisinesResturant,getResturantRateDESC,getResturantRateASC,getRestaurantByAlphabeticalOrder,getRestaurantByAlphabeticalOrderDESC,getRestaurantBySearch};

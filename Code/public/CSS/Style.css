@@ -1,0 +1,14 @@
+footer{
+    background: grey;
+    color: rgb(199, 199, 199);
+}
+.edit{
+    float: right;
+    padding-right: 5cm;
+}
+.navbar{
+    display:flex;
+    align-items:center;
+    padding: 20px;
+    background-color: rgb(58, 190, 251);
+}
