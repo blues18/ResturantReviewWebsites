@@ -4,6 +4,7 @@ const Userdetails = require('../models/UserProfile');
 const UserProfileDB = require('../models/UserProfileDB');
 const Userlog = require('../models/UserAUTH');
 const bcrypt = require('bcrypt');
+const fileupload = require('express-fileupload');
 var token = require('jsonwebtoken');
 var verysecret = "secert"; 
 

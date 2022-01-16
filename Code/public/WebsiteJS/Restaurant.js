@@ -1,11 +1,4 @@
 //function to getAllRestaurantDetails
-var RestaurantUrl = "/AllRestauarnts"; //urlatServer.jsGetAllRestaurant
-var Restaurant_array = []; // This creates an empty movie array
-var Restaurant_Count = 0;
-/*  There are two categories: "Now Showing" and "Coming Soon". This variable states which 
-    category of movies should be listed when the home page is first loaded. */
-var category = "RestaurantTitle";
-
 function getRestaurantDetails(){    
 	var request = new XMLHttpRequest();    
 	request.open('GET', RestaurantsURL, true); //this is based on postman method
@@ -36,7 +29,7 @@ function displayRestaurant() {
             var Description = Restaurant_array[count].RestaurantDescription;
 	var cell = '<div class="card col-md-3" ><img class="card-img-top" src="' + thumbnail + '" alt="Card image cap">\
                         <div class="card-body"><i class="far fa-comment fa-lg" style="float:left;cursor:pointer" data-toggle="modal" data-target="#RestaurantReview" item="' + count + '" onClick="Review(this)"></i>\
-                        <h5 style="padding-left:30px;cursor:pointer" data-toggle="modal" data-target="#Restaurant" class="card-title" item="' + count + '" onClick="Restaurant(this)">' + Description + '</h5></div>\
+                        <h5 style="padding-left:30px;cursor:pointer" data-toggle="modal" data-target="#restuarantModal" class="card-title" item="' + count + '" onClick="showRestaurantdetails(this)">' + Description + '</h5></div>\
 </div>'
             table.insertAdjacentHTML('beforeend', cell);
             Restaurant_Count++;
@@ -47,14 +40,33 @@ function displayRestaurant() {
             document.getElementById("parent").textContent = "";
         }
     }
-    function Cuisines(){
+    function Restaurant(){
         category = "EthnicRestaurant";
         displayRestaurant(category);
-        document.getElementById("nowMenu").classList.add("active");
-        document.getElementById("comingMenu").classList.remove("active");
+        document.getElementById("Restaurants").classList.add("active");
+        document.getElementById("RestaurantReviews").classList.remove("active");
         document.getElementById("aboutMenu").classList.remove("active");
     }
-    
+//This function is to display the individual movies details
+//whenever the user clicks on "See More"    
+function showRestaurantdetails(element) {
+    var item = element.getAttribute("item");
+    currentIndex = item;
+    document.getElementById("Title").textContent = Restaurant_array[item].title;
+    document.getElementById("RestaurantImage").src = Restaurant_array[item].RestaurantImage;
+    document.getElementById("EthnicRestaurant").textContent = Restaurant_array[item].EthnicRestaurant;
+    document.getElementById("RestaurantAddress").textContent = Restaurant_array[item].RestaurantAddress;
+    document.getElementById("OpeningHourRestaurant").textContent = Restaurant_array[item].OpeningHourRestaurant;
+    document.getElementById("Ratings").textContent = Restaurant_array[item].Ratings;
+    document.getElementById("RestaurantDescription").textContent = Restaurant_array[item].RestaurantDescription;
+    document.getElementById("trailer1").src = Restaurant_array[item].video1;
+    document.getElementById("trailer2").src = Restaurant_array[item].video2;
+}
+//This function opens a new window/tab and loads the
+//particular movie in the cinema website
+function buyTicket() {
+    window.open(Restaurant_array[currentIndex].buy, "_blank");
+}
 
     
        
