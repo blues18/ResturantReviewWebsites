@@ -7,7 +7,7 @@ function getRestaurantDetails(){
 	//get all the movies records into our movie array        
 	Restaurant_array = JSON.parse(request.responseText);        
 	//Fetch the comments as well        
-	//fetchComments();
+	//restaurantsReview();
 	console.log(Restaurant_array) // output to console        
 	//call the function so as to display all movies tiles for "Now Showing"        	
     displayRestaurant(category);    
@@ -23,18 +23,18 @@ function displayRestaurant() {
 
     table.innerHTML = "";
     totalRestaurant=Restaurant_array.length;                        //display
-    for (var count = 0; count < totalRestaurant; count++) {
+    for (var count = 0; count < totalRestaurant; count++) {     
             var howmany = Restaurant_array[count].RestaurantID;
             var thumbnail = Restaurant_array[count].RestaurantImage;
             var Description = Restaurant_array[count].RestaurantDescription;
 	var cell = '<div class="card col-md-3" ><img class="card-img-top" src="' + thumbnail + '" alt="Card image cap">\
-                        <div class="card-body"><i class="far fa-comment fa-lg" style="float:left;cursor:pointer" data-toggle="modal" data-target="#RestaurantReview" item="' + count + '" onClick="Review(this)"></i>\
+                        <div class="card-body"><i class="far fa-comment fa-lg" style="float:left;cursor:pointer" data-toggle="modal" data-target="#RestaurantReview" item="' + count + '" onClick="getReview(this)"></i>\
                         <h5 style="padding-left:30px;cursor:pointer" data-toggle="modal" data-target="#restuarantModal" class="card-title" item="' + count + '" onClick="showRestaurantdetails(this)">' + Description + '</h5></div>\
 </div>'
             table.insertAdjacentHTML('beforeend', cell);
             Restaurant_Count++;
             debugger;
-
+            
             message = howmany + " Restaurant singapore wide" ; //displaying how many restaurant 
             document.getElementById("summary").textContent = message;
             document.getElementById("parent").textContent = "";
