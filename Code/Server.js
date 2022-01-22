@@ -25,6 +25,7 @@ app.route('/RestaurantInAlphabeticalOrder').get(restuarntsController.getRestaura
 app.route('/RestaurantInAlphabeticalDESCOrder').get(restuarntsController.getRestaurantByAlphabeticalOrderDESC)//get Restaurant in alphabetical order DESCENDING
 app.route('/RestaurantSearch').post(restuarntsController.getRestaurantBySearch)//get Restaurant name/title by search
 app.route('/UserAuth').post(userprofileController.GetUserAuthentications)//get user info from login Username/Password
+app.route('/Usertoken').post(userprofileController.GetTokenUser)//get user token 
 //////////////////////////////////////////
 app.listen(8080, () => console.log("web servr running @ http://127.0.0.1:8080")); 
 

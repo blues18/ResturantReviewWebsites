@@ -2,7 +2,7 @@
 
 class Userprofile{
     constructor(UserID, UserName, FirstName, LastName, 
-        Gender, Address, PhoneNumber, Email,PassWord, UserProfilePictures,UserDescription,UserWallpaper){
+        Gender, Address, PhoneNumber, Email,PassWord, UserProfilePictures,UserDescription,UserWallpaper,Token){
             this.UserID=UserID;
             this.UserName=UserName;
             this.FirstName=FirstName;
@@ -15,6 +15,7 @@ class Userprofile{
             this.UserProfilePictures=UserProfilePictures;
             this.UserDescription=UserDescription;
             this.UserWallpaper=UserWallpaper;
+            this.Token=Token;
         }
         //Get method
         getUserID(){
@@ -53,6 +54,9 @@ class Userprofile{
         getUserWallpaper(){
             return this.UserWallpaper;
         }
+        getToken(){
+            return this.Token;
+        }
         // Set method
         setUserName(){
             this.UserName =UserName;
@@ -86,6 +90,9 @@ class Userprofile{
         }
         setUserWallpaper(){
             this.UserWallpaper=UserWallpaper;
+        }
+        setToken(){
+            this.Token=this.Token;
         }
 }
 module.exports = Userprofile;

@@ -5,7 +5,8 @@ const UserProfileDB = require('../models/UserProfileDB');
 const Userlog = require('../models/UserAUTH');
 const bcrypt = require('bcrypt');
 const fileupload = require('express-fileupload');
-var token = require('jsonwebtoken');
+var jwt = require('jsonwebtoken');
+const { setCharset } = require('express/lib/utils');
 var verysecret = "secert"; 
 
 var userprofileDB = new UserProfileDB();
@@ -35,20 +36,29 @@ function addUserProfile(request,respond){
         }
     })
 };
+
+
 function UpdateUserProfile(request,respond){
     var updateUserProfile = new Userdetails(parseInt(request.params.Update),request.body.UserName, request.body.FirstName, request.body.LastName, request.body.Gender
     , request.body.Address, request.body.PhoneNumber, request.body.Email, bcrypt.hashSync(request.body.PassWord,10), request.body.UserProfilePictures, 
-    request.body.UserDescription, request.body.UserWallpaper);
-    var owntoken = request.body.owntoken;
-    userprofileDB.UpdateUserProfile(updateUserProfile, function(error,result){
-        if(error){
-            respond.json(error);
-        }
-        else{
-            respond.json(result);
-        }
-    });
+    request.body.UserDescription, request.body.UserWallpaper, request.body.Token);
+    var owntoken = request.body.Token;
+    try {
+        var decoded = jwt.verify(owntoken,verysecret);
+        userprofileDB.UpdateUserProfile(updateUserProfile, function(error,result){
+            if(error){
+                respond.json(error);
+            }
+            else{
+                respond.json(result);
+            }
+        });
+    } catch (error) {
+        respond.json({result:"invaild token"});
+    }
 }
+
+
 function DeleteUserProfile(request,respond){
     var Deleteuserid = request.params.Delete;
     userprofileDB.DeleteUserProfile(Deleteuserid, function(error,result){
@@ -61,6 +71,7 @@ function DeleteUserProfile(request,respond){
     });
 }
 
+
 function GetUserAuthentications(request,respond){
     var Username = request.body.UserName;
     var Password = request.body.PassWord;
@@ -69,7 +80,6 @@ function GetUserAuthentications(request,respond){
             respond.json(error);
         }
         else{
-            //console.log(result[0].PassWord); 
             const hash = result[0].PassWord;
             var flag = bcrypt.compareSync(Password,hash);
             if (flag) {
@@ -80,5 +90,26 @@ function GetUserAuthentications(request,respond){
         }
     });
 }
+function GetTokenUser(request,respond){
+    var username = request.body.UserName;
+    var password = request.body.PassWord;
+    userprofileDB.GetTokenUser(username, function(error,result){
+        if(error){
+            respond.json(error);
+        }
+        else{
+            const hash = result[0].PassWord;
+            var flag = bcrypt.compareSync(password,hash);
+            if (flag) {
+                var token = jwt.sign({username,verysecret},"Stack",{expiresIn:"1800s"})  //expires in 30mins
+                //var token = jwt.sign(Username,verysecret)
+                respond.json({result:token});
+            } else {
+                respond.json({result:"Invaild Token"});              
+            }  
+        }
+    });
+}
+
 ///////////////////////////////////////////////testing 
-module.exports={getAllUserProfile,addUserProfile,UpdateUserProfile,DeleteUserProfile,GetUserAuthentications};
+module.exports={getAllUserProfile,addUserProfile,UpdateUserProfile,DeleteUserProfile,GetUserAuthentications,GetTokenUser};

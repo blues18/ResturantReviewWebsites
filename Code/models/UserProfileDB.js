@@ -15,9 +15,9 @@ class UserProfileDB{
             , Userprofile.getAddress(), Userprofile.getPhoneNumber(), Userprofile.getEmail(),Userprofile.getPassWord(), Userprofile. getUserProfilePictures(),null,null], callback);
     }
     UpdateUserProfile(UpdateUser,callback){
-        var sql = "UPDATE userprofiledata SET UserName = ?, FirstName = ?, LastName = ?, Gender = ?, Address = ?, PhoneNumber = ?, Email = ?, PassWord = ?, UserProfilePictures = ?, UserDescription = ?,UserWallpaper = ? WHERE UserID = ?";
+        var sql = "UPDATE userprofiledata SET UserName = ?, FirstName = ?, LastName = ?, Gender = ?, Address = ?, PhoneNumber = ?, Email = ?, PassWord = ?, UserProfilePictures = ?, UserDescription = ?,UserWallpaper = ?, Token= ? WHERE UserID = ?";
         return db.query(sql,[UpdateUser.getUserName() ,UpdateUser.getFirstName(), UpdateUser.getLastName(), UpdateUser.getGender()
-            , UpdateUser.getAddress(), UpdateUser.getPhoneNumber(), UpdateUser.getEmail(), UpdateUser.getPassWord(), UpdateUser. getUserProfilePictures(),UpdateUser.getUserDescription(),UpdateUser.getUserWallpaper(), UpdateUser.getUserID()], callback);
+            , UpdateUser.getAddress(), UpdateUser.getPhoneNumber(), UpdateUser.getEmail(), UpdateUser.getPassWord(), UpdateUser. getUserProfilePictures(),UpdateUser.getUserDescription(),UpdateUser.getUserWallpaper(),UpdateUser.getToken(), UpdateUser.getUserID()], callback);
     }
     DeleteUserProfile(DeleteUser,callback){
         var sql = "DELETE from userprofiledata WHERE UserID = ?";
@@ -28,6 +28,10 @@ class UserProfileDB{
         var sql = "SELECT * FROM userprofiledata WHERE UserName = ?";
         return db.query(sql,[UserAuth],callback);
         
+    }
+    GetTokenUser(UserToken,callback){
+        var sql = "SELECT * FROM userprofiledata WHERE UserName = ?";
+        return db.query(sql,[UserToken],callback);
     }
     ////////////////////////////////////   
 }
