@@ -33,6 +33,10 @@ class UserProfileDB{
         var sql = "SELECT * FROM userprofiledata WHERE UserName = ?";
         return db.query(sql,[UserToken],callback);
     }
+    distinctImage(User,callback){
+        var sql = "SELECT distinct UserName,PassWord,UserProfilePictures,UserWallpaper FROM userprofiledata WHERE UserName = ?";
+        return db.query(sql,[User],callback);
+    }
     ////////////////////////////////////   
-}
+}   
 module.exports=UserProfileDB;

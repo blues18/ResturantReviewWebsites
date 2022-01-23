@@ -5,8 +5,8 @@ function registerMe(){
     registerUser.open("POST","http://127.0.0.1:8080/AddUser",true);
     registerUser.setRequestHeader("Content-Type","application/json");
     registerUser.onload=function (){
-        
-        $('#registerModal'),modal('hide');
+
+        $('#registerModal').modal('hide');
     }
 
     var UserName = document.getElementById("username").value;

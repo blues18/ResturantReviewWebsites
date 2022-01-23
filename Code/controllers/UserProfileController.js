@@ -45,7 +45,7 @@ function UpdateUserProfile(request,respond){
     var owntoken = request.body.Token;
     try {
         var decoded = jwt.verify(owntoken,verysecret);
-        userprofileDB.UpdateUserProfile(updateUserProfile, function(error,result){
+        userprofileDB.UpdateUserProfile(updateUserProfile,decoded, function(error,result){
             if(error){
                 respond.json(error);
             }
@@ -101,8 +101,8 @@ function GetTokenUser(request,respond){
             const hash = result[0].PassWord;
             var flag = bcrypt.compareSync(password,hash);
             if (flag) {
-                var token = jwt.sign({username,verysecret},"Stack",{expiresIn:"1800s"})  //expires in 30mins
-                //var token = jwt.sign(Username,verysecret)
+                //var token = jwt.sign({username,verysecret},"Stack",{expiresIn:"1800s"})  //expires in 30mins
+                var token = jwt.sign(username,verysecret)
                 respond.json({result:token});
             } else {
                 respond.json({result:"Invaild Token"});              
@@ -111,5 +111,21 @@ function GetTokenUser(request,respond){
     });
 }
 
+function distinctImage(request,respond){
+    var token = request.body.Token;
+    try {
+        var decoded = jwt.verify(token,verysecret);
+        userprofileDB.distinctImage(decoded, function(error,result){
+            if(error){
+                respond.json(error);
+            }
+            else{
+                respond.json(result);
+            }
+        });       
+    } catch (error) {
+        respond.json({result:"invaild token"});
+    }
+}
 ///////////////////////////////////////////////testing 
-module.exports={getAllUserProfile,addUserProfile,UpdateUserProfile,DeleteUserProfile,GetUserAuthentications,GetTokenUser};
+module.exports={getAllUserProfile,addUserProfile,UpdateUserProfile,DeleteUserProfile,GetUserAuthentications,GetTokenUser,distinctImage};
