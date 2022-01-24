@@ -5,6 +5,12 @@ $(document).ready(function (){
     Profile.setRequestHeader("Content-Type","application/json");
     Profile.onload=function (){
         var displayProfile = JSON.parse(Profile.responseText);
+
+        document.getElementById("registerMenu").style.display="none";
+        document.getElementById("LoginMeun").style.display="none";
+        document.getElementById("LogOutMeun").style.display="block";
+        document.getElementById("usereditMeun").style.display="block";
+        
         console.log(Profile.responseText);
         UserID=displayProfile[0].UserID
         UserProfilePictures=displayProfile[0].UserProfilePictures;

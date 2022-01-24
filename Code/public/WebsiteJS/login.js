@@ -11,7 +11,7 @@ function loginMe(){
         var Usertoken = JSON.parse(LoginUser.responseText);
         console.log(Usertoken.result);
 
-        if (Usertoken.result != false) {
+        if(Usertoken.result != false) {
             $('#loginSuccess').modal('show');
             document.getElementById("registerMenu").style.display="none";
             document.getElementById("LoginMeun").style.display="none";
