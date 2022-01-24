@@ -35,7 +35,7 @@ class UserProfileDB{
         return db.query(sql,[UserToken],callback);
     }
     distinctImage(User,callback){
-        var sql = "SELECT distinct UserID,UserName,PassWord,UserProfilePictures,UserWallpaper FROM userprofiledata WHERE UserName = ?";
+        var sql = "SELECT distinct UserID,UserName,FirstName,LastName,Gender,Address,PhoneNumber,Email,PassWord,UserProfilePictures,UserDescription FROM userprofiledata WHERE UserName = ?";
         return db.query(sql,[User],callback);
     }
     NewUpdating(UserName,UserProfilePictures,callback){
