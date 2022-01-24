@@ -37,15 +37,15 @@ function addUserProfile(request,respond){
     })
 };
 
-
+//error do not used this!
 function UpdateUserProfile(request,respond){
-    var updateUserProfile = new Userdetails(parseInt(request.params.Update),request.body.UserName, request.body.FirstName, request.body.LastName, request.body.Gender
+    var updateUserProfile = new Userdetails(request.body.FirstName, request.body.LastName, request.body.Gender
     , request.body.Address, request.body.PhoneNumber, request.body.Email, bcrypt.hashSync(request.body.PassWord,10), request.body.UserProfilePictures, 
     request.body.UserDescription, request.body.UserWallpaper, request.body.Token);
     var owntoken = request.body.Token;
     try {
         var decoded = jwt.verify(owntoken,verysecret);
-        userprofileDB.UpdateUserProfile(updateUserProfile,decoded, function(error,result){
+        userprofileDB.UpdateUserProfile(updateUserProfile, function(error,result){
             if(error){
                 respond.json(error);
             }
@@ -127,5 +127,23 @@ function distinctImage(request,respond){
         respond.json({result:"invaild token"});
     }
 }
+function NewUpdating(request,respond){
+    var UserProfilePictures = request.body.UserProfilePictures;
+    var token = request.body.Token;
+    try {
+        var decoded = jwt.verify(token,verysecret);
+        userprofileDB.NewUpdating(decoded,UserProfilePictures, function(error,result){
+            if(error){
+                respond.json(error);
+            }
+            else{
+                respond.json(result);
+            }
+        });       
+    } catch (error) {
+        respond.json({result:"invaild token"});
+    }
+}
+
 ///////////////////////////////////////////////testing 
-module.exports={getAllUserProfile,addUserProfile,UpdateUserProfile,DeleteUserProfile,GetUserAuthentications,GetTokenUser,distinctImage};
+module.exports={getAllUserProfile,addUserProfile,UpdateUserProfile,DeleteUserProfile,GetUserAuthentications,GetTokenUser,distinctImage,NewUpdating};

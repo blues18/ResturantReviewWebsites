@@ -16,7 +16,7 @@ app.route('/ReviewedUpdate/:Update').put(reviewedController.updateReview)//pu te
 app.route('/ReviewedDelete/:Delete').delete(reviewedController.deleteReview)//deleting the reviewed based on id
 app.route('/AllUserProfile').get(userprofileController.getAllUserProfile)// Get all userpofile details on sql databased
 app.route('/AddUser').post(userprofileController.addUserProfile)//postto add new user 
-app.route('/UpdateUser/:Update').put(userprofileController.UpdateUserProfile)// put for updating the user profile details
+app.route('/UpdateUser').put(userprofileController.UpdateUserProfile)// put for updating the user profile details
 app.route('/DeleteUser/:Delete').delete(userprofileController.DeleteUserProfile)// Delete the user profile details based on the existing id
 app.route('/EthnicRestaurant').post(restuarntsController.getCuisinesResturant)//Get resturant starting with ethnic groups
 app.route('/RestaurantRatingInDESC').get(restuarntsController.getResturantRateDESC)//get resturant in Descending order W3schools
@@ -28,6 +28,7 @@ app.route('/UserAuth').post(userprofileController.GetUserAuthentications)//get u
 app.route('/Usertoken').post(userprofileController.GetTokenUser)//get user token 
 app.route('/imageUpload').post(userprofileController.distinctImage)//getting distict images
 //////////////////////////////////////////
+app.route('/NewUpdate').put(userprofileController.NewUpdating)
 app.listen(8080, () => console.log("web servr running @ http://127.0.0.1:8080")); 
 
 //MAKE SURE TO ctrl C to restart the server.js (node server.js)

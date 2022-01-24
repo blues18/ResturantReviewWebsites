@@ -10,7 +10,6 @@ $(document).ready(function (){
         UserProfilePictures=displayProfile[0].UserProfilePictures;
         UserName=displayProfile[0].UserName;
         PassWord=displayProfile[0].PassWord;
-        Token=displayProfile[0].Token;
         document.getElementById('userid').value=UserID;
         document.getElementById('Username').value=UserName;
         document.getElementById('Password').value=PassWord;   
