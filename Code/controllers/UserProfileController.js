@@ -129,10 +129,17 @@ function distinctImage(request,respond){
 }
 function NewUpdating(request,respond){
     var UserProfilePictures = request.body.UserProfilePictures;
+    var FirstName = request.body.FirstName;
+    var LastName = request.body.LastName;
+    var Gender = request.body.Gender;
+    var Address = request.body.Address;
+    var PhoneNumber = request.body.PhoneNumber;
+    var Email = request.body.Email;
+    var UserDescription = request.body.UserDescription;
     var token = request.body.Token;
     try {
         var decoded = jwt.verify(token,verysecret);
-        userprofileDB.NewUpdating(decoded,UserProfilePictures, function(error,result){
+        userprofileDB.NewUpdating(decoded,UserProfilePictures,FirstName,LastName,Gender,Address,PhoneNumber,Email,UserDescription, function(error,result){
             if(error){
                 respond.json(error);
             }

@@ -22,7 +22,16 @@ function update(){
         $('#successfulModal').modal('show');
        
     }
-    //PassWord = document.getElementById("Password").value;
-    var payload = {Token:Token,UserProfilePictures:UserProfilePictures}//get this from Userprofile controller where we requested the body.username and password 
+    FirstName = document.getElementById("FirstName").value;
+    LastName = document.getElementById("LastName").value;
+    Gender = document.getElementById("Gender").value;
+    Address = document.getElementById("Address").value;
+    Gender = document.getElementById("Gender").value;
+    Address = document.getElementById("Address").value;
+    PhoneNumber = document.getElementById("PhoneNumber").value;
+    Email = document.getElementById("Email").value;
+    UserDescription = document.getElementById("UserDescription").value;
+    
+    var payload = {Token:Token,UserProfilePictures:UserProfilePictures,FirstName:FirstName,LastName:LastName,Gender:Gender,Address:Address,PhoneNumber:PhoneNumber,Email:Email,UserDescription:UserDescription}//get this from Userprofile controller where we requested the body.username and password 
     updateUserDatails.send(JSON.stringify(payload));
 } 

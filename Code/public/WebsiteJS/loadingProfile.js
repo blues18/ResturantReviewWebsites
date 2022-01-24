@@ -26,7 +26,6 @@ $(document).ready(function (){
 
         document.getElementById('userid').value=UserID;
         document.getElementById('Username').value=UserName;
-        document.getElementById('Password').value=PassWord;
         document.getElementById('FirstName').value=FirstName;
         document.getElementById('LastName').value=LastName;
         document.getElementById('Gender').value=Gender;
