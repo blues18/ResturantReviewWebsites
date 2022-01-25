@@ -11,8 +11,10 @@
         <div w3-include-html="top-RestaurantNavigation.html"></div>
         <!-- This is the container that holds the initial message, heading, and movies -->
         <div class="container">
+            <button class="Creating" id="CreateReviewMeun" data-toggle="modal" data-target="#newRestaurantReview">CreateReview</button> 
+            <div class="row" id="parent"></div>
             <p>
-            <h3 id="summary"></h3>
+            <h3 id="summary"></h3> 
             </p>
             <!-- Displays thumbnails of the movies here -->
             <div id="ReviewsTable" class="row"></div>
@@ -34,7 +36,12 @@
          <!-- Include the failed modal here -->
         <div w3-include-html="loginFailedMessage.html"></div>
          <!-- Include the login-modal here -->
-        <div w3-include-html="login-modal.html"></div>        
+        <div w3-include-html="login-modal.html"></div>    
+        <!-- Include the login-modal here -->
+        <div w3-include-html="ReviewedDetails-modal.html"></div>  
+         <!-- Include the login-modal here -->
+         <div w3-include-html="new-Review-modal.html"></div>    
+
         
         <br><br>
         <!-- Include the footer here -->

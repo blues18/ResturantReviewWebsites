@@ -5,7 +5,7 @@ $(document).ready(function (){
         $('#registerMenu').hide();
         $('#LoginMeun').hide();  
         $('#LogOutMeun').show();
-        $('#usereditMeun').show();           
+        $('#usereditMeun').show();     
     } else{
         window.location.href="index.html";
     }

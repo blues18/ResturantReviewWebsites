@@ -4,5 +4,6 @@ function logoutMe() {
     $('#LoginMeun').show();
     $('#LogOutMeun').hide();
     $('#usereditMeun').hide();
+
     sessionStorage.removeItem("token");    
 }
