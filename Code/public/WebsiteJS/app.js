@@ -8,8 +8,8 @@ var current_index = 0;
 
 var AllReviewedURL = "/AllReviewed";
 var Reviewed_array=[];//This creates an empty Restaurant array
-
-var Addreview ="ADDReviewed";
+var Review_Count=0;
+var reviewed = "Review";
 
 var StarBWimage = 'images/640px-Emblem-star-gray.svg';
 var Starimage = 'images/640px-Golden_star.svg';
