@@ -11,11 +11,43 @@
                 <!-- All input to be sent to server, and buttons must be within the 'form' tag -->
                 <form id="commentForm">
                     <div class="row" text-center id="commentBody">
-                        <label for="nickname">Username</label>
-                        <input type="text" id="nickname" class="form-control" required>
-                        <label for="userComments">Review</label>
-                        <textarea id="userComments" required class="form-control form-rounded" rows="3" cols="100%"></textarea>
-                        <label for="Star">Rating</label>
+                        <label for="restaurantID">RestaurantID</label>
+                        <input type="text" id="ReviewResturantsID" class="form-control" required>
+
+                        <label for="userID">ReviewedUserID</label>
+                        <input type="text" id="ReviewUserID" class="form-control" required>
+
+                        <label for="title">ReviewTitle</label>
+                        <input type="text" id="ReviewTitle" class="form-control" required>
+
+                        <label for="username">ReviewByUserName</label>
+                        <input type="text" id="ReviewByUserName" class="form-control" required>
+
+                        <label for="images">ReviewPhoto</label>
+                        <input type="text" id="ReviewPhoto" class="form-control" >
+
+                        <label for="RestaurantName">ReviewRestaurantName</label>
+                        <input type="text" id="ReviewRestaurantName" class="form-control" >
+
+                        <label for="rating">Overallratings</label>
+                        <input type="text" id="Overallratings" class="form-control" >
+
+                        <label for="price">RatingPrice</label>
+                        <input type="text" id="RatingPrice" class="form-control" >
+
+                        <label for="Hyperlink">ReviewRestaurantHyperlink</label>
+                        <input type="text" id="ReviewRestaurantHyperlink" class="form-control" >
+
+                        <label for="rateOnfood">RatingFood</label>
+                        <input type="text" id="RatingFood" class="form-control" >
+
+                        <label for="rateOnservice">RatingService</label>
+                        <input type="text" id="RatingService" class="form-control" >
+
+                        <label for="comments">ReviewComment</label>
+                        <input type="text" id="ReviewComment" class="form-control" >
+
+                        <label for="Star">Overallratings</label>
                         <img src="images/640px-Emblem-star-gray.svg.png" width="30" height="30" class="pop" value="1" onmouseover="rateIt(this)" />
                         <img src="images/640px-Emblem-star-gray.svg.png" width="30" height="30" class="pop" value="2" onmouseover="rateIt(this)" />
                         <img src="images/640px-Emblem-star-gray.svg.png" width="30" height="30" class="pop" value="3" onmouseover="rateIt(this)" />
@@ -24,8 +56,8 @@
                     </div>
 
                     <div class="modal-footer">
-  <button type="button" class="btn btn-primary" data-dismiss="modal" id="submitComment" onClick="addComment()">Submit</button>
-                        <button type="button" class="btn btn-secondary bg-dark" data-dismiss="modal">Close</button>
+  <button type="button" class="btn btn-primary" data-dismiss="modal" id="submitComment" onClick="addReview()">Submit</button>
+                        <button type="button" class="btn btn-secondary bg-dark" data-dismiss="modal" onclick="editReview();">Close</button>
                     </div>
                 </form>
             </div>

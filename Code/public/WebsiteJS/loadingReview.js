@@ -30,9 +30,9 @@ function displayReviewPost() {
       '<div class="card col-md-3" ><img class="card-img-top" src="' +
       reviewedimage +
       '" alt="Card image cap">\
-                        <div class="card-body"><i class="far fa-comment fa-lg" style="float:left;cursor:pointer" data-toggle="modal" data-target="#commentModal" item="' +
+                        <div class="card-body"><i class="far fa-comment fa-lg" style="float:left;cursor:pointer" data-toggle="modal" data-target="#editReviewModal" item="' +
       count +
-      '" onClick="none"></i>\
+      '" onClick="editReview(this)"></i>\
                         <h5 style="padding-left:30px;cursor:pointer" data-toggle="modal" data-target="#ReviewModal" class="card-title" item="' +
       count +
       '" onClick="showRestaurantPost(this)">' +
@@ -42,7 +42,7 @@ function displayReviewPost() {
     table.insertAdjacentHTML("beforeend", cell);
     Review_Count++;
 
-    message = numberofID + " ReviewsPost ";
+    message = Review_Count + " ReviewsPost ";
     document.getElementById("summary").textContent = message;
     document.getElementById("parent").textContent = "";
   }
@@ -50,25 +50,46 @@ function displayReviewPost() {
 function showRestaurantPost(element) {
   var item = element.getAttribute("item");
   ReviewedCurrent_index = item;
-  document.getElementById("ReviewsTitle").textContent =
+  document.getElementById("reviewsTitle").textContent =
     Reviewed_array[item].ReviewTitle;
-  document.getElementById("Reviewimage").src = Reviewed_array[item].ReviewPhoto;
-  document.getElementById("ReviewRestaurantName").textContent =
+  document.getElementById("reviewimage").src = Reviewed_array[item].ReviewPhoto;
+  document.getElementById("reviewRestaurantName").textContent =
     Reviewed_array[item].ReviewRestaurantName;
-  document.getElementById("Overallratings").textContent =
+  document.getElementById("overallratings").textContent =
     Reviewed_array[item].Ratings;
-  document.getElementById("RatingPrice").textContent =
+  document.getElementById("ratingPrice").textContent =
     Reviewed_array[item].RatingPrice;
-  document.getElementById("RatingFood").textContent =
+  document.getElementById("ratingFood").textContent =
     Reviewed_array[item].RatingFood;
-  document.getElementById("RatingService").textContent =
+  document.getElementById("ratingService").textContent =
     Reviewed_array[item].RatingService;
-  document.getElementById("ReviewComment").textContent =
+  document.getElementById("reviewComment").textContent =
     Reviewed_array[item].ReviewComment;
-  document.getElementById("ReviewRestaurantHyperlink").src =
+  document.getElementById("reviewRestaurantHyperlink").src =
     Reviewed_array[item].ReviewRestuarntHyperLink;
-  document.getElementById("ReviewByUserName").textContent =
+  document.getElementById("reviewByUserName").textContent =
     Reviewed_array[item].ReviewByUserName;
-  document.getElementById("DatePost").textContent =
+  document.getElementById("datePost").textContent =
     Reviewed_array[item].DatePost;
+}
+
+function editReview(element) {
+  var item = element.getAttribute("item");
+
+  currentIndex = item;
+
+  document.getElementById("editReviewResturantsID").value = Reviewed_array[item].ReviewResturantsID;
+  document.getElementById("editReviewUserID").value  = Reviewed_array[item].ReviewUserID;
+  document.getElementById("editReviewTitle").value = Reviewed_array[item].ReviewTitle;
+  document.getElementById("editReviewimage").value = Reviewed_array[item].ReviewPhoto;
+  document.getElementById("editReviewRestaurantName").value = Reviewed_array[item].ReviewRestaurantName;
+  document.getElementById("editOverallratings").value = Reviewed_array[item].Ratings;
+  document.getElementById("editRatingPrice").value = Reviewed_array[item].RatingPrice;
+  document.getElementById("editReviewRestaurantHyperlink").value = Reviewed_array[item].ReviewRestuarntHyperLink;
+  document.getElementById("editRatingFood").value = Reviewed_array[item].RatingFood;
+  document.getElementById("editRatingService").value = Reviewed_array[item].RatingService;
+  document.getElementById("editReviewComment").value = Reviewed_array[item].ReviewComment;
+  document.getElementById("editReviewByUserName").value = Reviewed_array[item].ReviewByUserName;
+  //console.log(comment_array[item].rating);
+  //displayColorPopcorn('editpop', comment_array[item].rating);
 }

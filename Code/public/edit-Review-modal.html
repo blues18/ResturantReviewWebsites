@@ -1,0 +1,66 @@
+<div class="modal fade" id="editReviewModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-dark text-center">
+                <h3 class="modal-title text-light" id="editreviewsTitle">Title</h3>
+                <button type="button" class="close bg-light" data-dismiss="modal">
+                    <span>&times;</span>
+                </button>
+            </div>
+            <div class="modal-body px-5">
+                <form id="commentForm">
+                    <div class="row" text-center id="editcommentBody">
+
+                        <label for="restaurantID">RestaurantID</label>
+                        <input type="text" disabled id="editReviewResturantsID" class="form-control" required>
+
+                        <label for="userID">ReviewedUserID</label>
+                        <input type="text" disabled id="editReviewUserID" class="form-control" required>
+
+                        <label for="title">ReviewTitle</label>
+                        <input type="text" id="editReviewTitle" class="form-control" required>
+
+                        <label for="username">ReviewByUserName</label>
+                        <input type="text" id="editReviewByUserName" class="form-control" required>
+
+                        <label for="images">ReviewPhoto</label>
+                        <input type="text" id="editReviewimage" class="form-control" >
+
+                        <label for="RestaurantName">ReviewRestaurantName</label>
+                        <input type="text" id="editReviewRestaurantName" class="form-control" >
+
+                        <label for="rating">Overallratings</label>
+                        <input type="text" id="editOverallratings" class="form-control" >
+
+                        <label for="price">RatingPrice</label>
+                        <input type="text" id="editRatingPrice" class="form-control" >
+
+                        <label for="Hyperlink">ReviewRestaurantHyperlink</label>
+                        <input type="text" id="editReviewRestaurantHyperlink" class="form-control" >
+
+                        <label for="rateOnfood">RatingFood</label>
+                        <input type="text" id="editRatingFood" class="form-control" >
+
+                        <label for="rateOnservice">RatingService</label>
+                        <input type="text" id="editRatingService" class="form-control" >
+
+                        <label for="comments">ReviewComment</label>
+                        <input type="text" id="editReviewComment" class="form-control" >
+
+                        <label for="Star">Overallratings</label>
+                        <img src="images/640px-Emblem-star-gray.svg.png" width="30" height="30" class="pop" value="1" onmouseover="rateIt(this)" />
+                        <img src="images/640px-Emblem-star-gray.svg.png" width="30" height="30" class="pop" value="2" onmouseover="rateIt(this)" />
+                        <img src="images/640px-Emblem-star-gray.svg.png" width="30" height="30" class="pop" value="3" onmouseover="rateIt(this)" />
+                        <img src="images/640px-Emblem-star-gray.svg.png" width="30" height="30" class="pop" value="4" onmouseover="rateIt(this)" />
+                        <img src="images/640px-Emblem-star-gray.svg.png" width="30" height="30" class="pop" value="5" onmouseover="rateIt(this)" />
+                    </div>
+
+                    <div class="modal-footer">
+  <button type="button" class="btn btn-primary" data-dismiss="modal" id="submitComment" onClick="updateReview()">Submit</button>
+                        <button type="button" class="btn btn-secondary bg-dark" data-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
