@@ -5,7 +5,8 @@ function registerMe(){
     registerUser.open("POST","http://127.0.0.1:8080/AddUser",true);
     registerUser.setRequestHeader("Content-Type","application/json");
     registerUser.onload=function (){
-
+        
+        $('#successfulModal').modal('show');
         $('#registerModal').modal('hide');
     }
 
@@ -17,8 +18,7 @@ function registerMe(){
     var PhoneNumber = document.getElementById("PhoneNumber").value;
     var Email = document.getElementById("email").value;
     var PassWord = document.getElementById("password").value;
-    var UserProfilePictures = document.getElementById("userprofilepicture").value
     var payload = {UserName:UserName,FirstName:FirstName,LastName:LastName,Gender:Gender,
-        Address:Address,PhoneNumber:PhoneNumber,Email:Email,PassWord:PassWord,UserProfilePictures:UserProfilePictures}//get this from Userprofile controller where we requested th body.username and password 
+        Address:Address,PhoneNumber:PhoneNumber,Email:Email,PassWord:PassWord}//get this from Userprofile controller where we requested th body.username and password 
     registerUser.send(JSON.stringify(payload));
 } 

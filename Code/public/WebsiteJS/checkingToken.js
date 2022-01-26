@@ -5,6 +5,7 @@ $(document).ready(function (){
         $('#registerMenu').hide();
         $('#LoginMeun').hide();
         $('#LogOutMeun').show();
-        $('#usereditMeun').show();       
+        $('#usereditMeun').show();
+        $('#CreateReviewMeun').show();       
     }    
 })

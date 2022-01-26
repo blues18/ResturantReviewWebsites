@@ -20,7 +20,7 @@ function displayRestaurant() {
   var table = document.getElementById("RestaurantTable");
   var Restaurant_Count = 0;
   var message = "";
-  debugger;
+ 
 
   table.innerHTML = "";
   totalRestaurant = Restaurant_array.length; //display
@@ -44,7 +44,7 @@ function displayRestaurant() {
 
     table.insertAdjacentHTML("beforeend", cell);
     Restaurant_Count++;
-    debugger;
+    
 
     message = howmany + " Restaurant singapore wide"; //displaying how many restaurant
     document.getElementById("summary").textContent = message;

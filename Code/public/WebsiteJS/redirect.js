@@ -6,6 +6,7 @@ $(document).ready(function (){
         $('#LoginMeun').hide();  
         $('#LogOutMeun').show();
         $('#usereditMeun').show();     
+        $('#CreateReviewMeun').show(); 
     } else{
         window.location.href="index.html";
     }
