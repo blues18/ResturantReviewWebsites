@@ -39,9 +39,26 @@ function updateReview() {
     
     updatingpost.onload = function () {
 
-        $('#successfulModal').modal('show');
+      $('#successfulModal').modal('show');
 
     };
     updatingpost.send(JSON.stringify(Reviewed_array[currentIndex]));
   }
 }
+
+function deleteReview(element) {
+  var response = confirm("Are you sure you want to delete this post?");
+
+  if (response == true) {
+      var item = element.getAttribute("item"); //get the current item
+      var delete_url = DeleteURL + "/" + Reviewed_array[item].ReviewID;
+      var eraseReview = new XMLHttpRequest();
+      eraseReview.open("DELETE", delete_url, true);
+      eraseReview.onload = function() {
+        $('#successfulModal').modal('show');
+        location.reload(" ");
+      };
+      eraseReview.send();
+  }
+}
+

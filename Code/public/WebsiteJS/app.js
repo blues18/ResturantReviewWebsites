@@ -13,6 +13,8 @@ var reviewed = "Review";
 var ReviewedCurrent_index = 0;
 var UpdatingReviewAPI = "/ReviewedUpdate"
 
+var DeleteURL ="/ReviewedDelete";
+
 var StarBWimage = 'images/640px-Emblem-star-gray.svg';
 var Starimage = 'images/640px-Golden_star.svg';
 var rating = 0;

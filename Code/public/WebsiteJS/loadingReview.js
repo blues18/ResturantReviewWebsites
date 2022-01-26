@@ -33,6 +33,9 @@ function displayReviewPost() {
                         <div class="card-body"><i class="far fa-comment fa-lg" style="float:left;cursor:pointer" data-toggle="modal" data-target="#editReviewModal" item="' +
       count +
       '" onClick="editReview(this)"></i>\
+                        <div class="card-body"><i class="fa fa-trash" style="float:right;cursor:pointer" data-toggle="modal" data-target="#" item="' +
+      count +
+      '" onClick="deleteReview(this)"></i>\
                         <h5 style="padding-left:30px;cursor:pointer" data-toggle="modal" data-target="#ReviewModal" class="card-title" item="' +
       count +
       '" onClick="showRestaurantPost(this)">' +
@@ -93,3 +96,20 @@ function editReview(element) {
   //console.log(comment_array[item].rating);
   //displayColorPopcorn('editpop', comment_array[item].rating);
 }
+
+//This function deletes the selected comment in a specific movie
+function deleteComment(element) {
+  var response = confirm("Are you sure you want to delete this comment?");
+
+  if (response == true) {
+      var item = element.getAttribute("item"); //get the current item
+      var delete_comment_url = comment_url + "/" + comment_array[item]._id;
+      var eraseComment = new XMLHttpRequest();
+      eraseComment.open("DELETE", delete_comment_url, true);
+      eraseComment.onload = function() {
+          fetchComments();
+      };
+      eraseComment.send();
+  }
+}
+

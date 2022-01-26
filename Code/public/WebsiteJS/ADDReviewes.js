@@ -7,11 +7,12 @@ function addReview() {
   
           console.log("new comment sent");
           $('#successfulModal').modal('show');    
+          location.reload(" ");
     };
     var ReviewResturantsID = document.getElementById("ReviewResturantsID").value;
     var ReviewUserID = document.getElementById("ReviewUserID").value;
     var ReviewTitle = document.getElementById("ReviewTitle").value;
-    var ReviewPhoto = document.getElementById("Reviewimage").value;
+    var ReviewPhoto = document.getElementById("ReviewPhoto").value;
     var ReviewRestaurantName = document.getElementById("ReviewRestaurantName").value;
     var Ratings = document.getElementById("Overallratings").value;
     var RatingPrice = document.getElementById("RatingPrice").value;
