@@ -17,7 +17,7 @@ app.route('/ReviewedDelete/:Delete').delete(reviewedController.deleteReview)//de
 app.route('/AllUserProfile').get(userprofileController.getAllUserProfile)// Get all userpofile details on sql databased
 app.route('/AddUser').post(userprofileController.addUserProfile)//postto add new user 
 app.route('/UpdateUser').put(userprofileController.UpdateUserProfile)// put for updating the user profile details
-app.route('/DeleteUser/:Delete').delete(userprofileController.DeleteUserProfile)// Delete the user profile details based on the existing id
+app.route('/DeleteUser').delete(userprofileController.DeleteUserProfile)// Delete the user profile details based on the existing id
 app.route('/EthnicRestaurant').post(restuarntsController.getCuisinesResturant)//Get resturant starting with ethnic groups
 app.route('/RestaurantRatingInDESC').get(restuarntsController.getResturantRateDESC)//get resturant in Descending order W3schools
 app.route('/RestaurantRatingInASC').get(restuarntsController.getResturantRateASC)//get resturant in ascending order W3schools

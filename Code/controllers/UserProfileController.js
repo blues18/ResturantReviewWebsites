@@ -60,7 +60,7 @@ function UpdateUserProfile(request,respond){
 
 
 function DeleteUserProfile(request,respond){
-    var Deleteuserid = request.params.Delete;
+    var Deleteuserid = request.body.Deleteuserid;
     userprofileDB.DeleteUserProfile(Deleteuserid, function(error,result){
         if(error){
             respond.json(error);
@@ -68,7 +68,7 @@ function DeleteUserProfile(request,respond){
         else{
             respond.json(result);
         }
-    });
+        });      
 }
 
 

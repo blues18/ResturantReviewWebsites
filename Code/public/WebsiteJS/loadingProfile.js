@@ -1,7 +1,7 @@
 $(document).ready(function (){
 
     var Profile = new XMLHttpRequest();
-    Profile.open("POST","http://127.0.0.1:8080/imageUpload",true);
+    Profile.open("POST","http://127.0.0.1:8080/imageUpload",true); //get data
     Profile.setRequestHeader("Content-Type","application/json");
     Profile.onload=function (){
         var displayProfile = JSON.parse(Profile.responseText);
