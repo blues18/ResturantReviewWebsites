@@ -103,7 +103,7 @@ function GetTokenUser(request,respond){
             if (flag) {
                 //var token = jwt.sign({username,verysecret},"Stack",{expiresIn:"1800s"})  //expires in 30mins
                 var token = jwt.sign(username,verysecret)
-                respond.json({result:token});
+                respond.json({result:token,username});
             } else {
                 respond.json({result:"Invaild Token"});              
             }  
@@ -117,7 +117,7 @@ function distinctImage(request,respond){
         var decoded = jwt.verify(token,verysecret);
         userprofileDB.distinctImage(decoded, function(error,result){
             if(error){
-                respond.json(error);
+                respond.json(console.log("failed"));
             }
             else{
                 respond.json(result);

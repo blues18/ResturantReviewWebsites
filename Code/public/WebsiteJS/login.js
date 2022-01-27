@@ -10,6 +10,7 @@ function loginMe(){
 
         var Usertoken = JSON.parse(LoginUser.responseText);
         console.log(Usertoken.result);
+        console.log(Usertoken.username)
 
         if(Usertoken.result != false) {
             $('#loginSuccess').modal('show');
@@ -18,6 +19,11 @@ function loginMe(){
             document.getElementById("LogOutMeun").style.display="block";
             document.getElementById("usereditMeun").style.display="block";
             sessionStorage.setItem("token", Usertoken.result);
+            sessionStorage.setItem("username",Usertoken.username);
+
+            UserNameDisplay=Usertoken.username;
+            document.getElementById('displayUser').value=UserNameDisplay;
+           
         }else {
             $('#loginFailed').modal('show');
         }
