@@ -158,7 +158,7 @@ function NewUpdating(request,respond){
         var decoded = jwt.verify(token,verysecret);
         userprofileDB.distinctImage(decoded, function(error,result){
             if(error){
-                respond.json(console.log("failed2"));
+                respond.json(console.log("failed"));
             }
             else{
                 respond.json(result);

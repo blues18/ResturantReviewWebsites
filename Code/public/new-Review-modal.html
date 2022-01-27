@@ -6,15 +6,28 @@
                 <button type="button" class="close bg-light" data-dismiss="modal">
                     <span>&times;</span>
                 </button>
+                <script>
+                    var UserID,UserProfilePictures,PassWord,UserName,Token;
+                    Token=sessionStorage.getItem("token");
+                    UserName=sessionStorage.getItem("username");         
+                </script>
             </div>
             <div class="modal-body px-5">
                 <!-- All input to be sent to server, and buttons must be within the 'form' tag -->
                 <form id="commentForm">
                     <div class="row" text-center id="commentBody">
-                        <label for="restaurantID">RestaurantID</label>
-                        <input type="text" id="ReviewResturantsID" class="form-control" required>
-
-                        <label for="userID">ReviewedUserID</label>
+                        <label for="restaurantID"> RestaurantID</label>
+                        <select id="ReviewRestaurantsID" name="id" class="form-control" required>
+                            <option value="1">SWENSEN</option>
+                            <option value="2">Soup Restaurant</option>
+                            <option value="3">Ichiban</option>
+                            <option value="4">Alstons</option>
+                            <option value="5">BurgerKing</option>
+                            <option value="6">Jonior</option>
+                            <option value="7">Ichiban</option>
+                        </select> 
+                        <p></p>
+                        <label for="userID"> ReviewedUserID</label>
                         <input type="text" id="ReviewUserID" class="form-control" required>
 
                         <label for="title">ReviewTitle</label>
@@ -22,24 +35,45 @@
 
                         <label for="username">ReviewByUserName</label>
                         <input type="text" id="ReviewByUserName" class="form-control" required>
-
-                        <label for="images">ReviewPhoto</label>
-                        <input type="text" id="ReviewPhoto" class="form-control" >
-
+                        
                         <label for="RestaurantName">ReviewRestaurantName</label>
                         <input type="text" id="ReviewRestaurantName" class="form-control" >
 
                         <label for="rating">Overallratings</label>
-                        <input type="text" id="Overallratings" class="form-control" >
+                        <select type="text" id="Overallratings" class="form-control" >
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
 
                         <label for="price">RatingPrice</label>
-                        <input type="text" id="RatingPrice" class="form-control" >
+                        <select type="text" id="RatingPrice" class="form-control" >
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
 
                         <label for="rateOnfood">RatingFood</label>
-                        <input type="text" id="RatingFood" class="form-control" >
+                        <select type="text" id="RatingFood" class="form-control" >
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
 
                         <label for="rateOnservice">RatingService</label>
-                        <input type="text" id="RatingService" class="form-control" >
+                        <select type="text" id="RatingService" class="form-control" >\
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
 
                         <label for="Hyperlink">ReviewRestaurantHyperlink</label>
                         <input type="text" id="ReviewRestaurantHyperlink" class="form-control" >
@@ -47,16 +81,13 @@
                         <label for="comments">ReviewComment</label>
                         <input type="text" id="ReviewComment" class="form-control" >
 
-                        <label for="Star">Overallratings</label>
-                        <img src="images/640px-Emblem-star-gray.svg.png" width="30" height="30" class="pop" value="1" onmouseover="rateIt(this)" />
-                        <img src="images/640px-Emblem-star-gray.svg.png" width="30" height="30" class="pop" value="2" onmouseover="rateIt(this)" />
-                        <img src="images/640px-Emblem-star-gray.svg.png" width="30" height="30" class="pop" value="3" onmouseover="rateIt(this)" />
-                        <img src="images/640px-Emblem-star-gray.svg.png" width="30" height="30" class="pop" value="4" onmouseover="rateIt(this)" />
-                        <img src="images/640px-Emblem-star-gray.svg.png" width="30" height="30" class="pop" value="5" onmouseover="rateIt(this)" />
+                        <label for ="myinput2">picture</label>
+                        <input id ="myinputreview" class="form-control" type="file" onchange="encode2();"/>
+                        <img style="width:200px;height:200px"  id="target"/>
                     </div>
 
                     <div class="modal-footer">
-  <button type="button" class="btn btn-primary" data-dismiss="modal" id="submitComment" onClick="addReview()">Submit</button>
+  <button type="button" class="btn btn-primary" data-dismiss="modal" id="submitComment" onClick="addReview();">Submit</button>
                         <button type="button" class="btn btn-secondary bg-dark" data-dismiss="modal" onclick="editReview();">Close</button>
                     </div>
                 </form>

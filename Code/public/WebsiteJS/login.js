@@ -24,7 +24,6 @@ function loginMe(){
 
             UserNameDisplay=Usertoken.username;
             document.getElementById('displayUser').value=UserNameDisplay;
-           
         }else {
             $('#loginFailed').modal('show');
         }

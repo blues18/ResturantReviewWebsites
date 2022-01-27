@@ -138,8 +138,10 @@ if (Usertoken != null) {
   Profile.setRequestHeader("Content-Type", "application/json");
   Profile.onload = function (){
 
+
     console.log(Profile.responseText);
   };
+ 
   var payload={Token:Token};
   Profile.send(JSON.stringify(payload));
 } else {

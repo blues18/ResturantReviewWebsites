@@ -13,56 +13,34 @@ function restaurantsReview() {
 }
 
 function getReview(element) {
-  document.getElementById("emptyReview").innerHTML =
-    "No review yet. Create one now";
+  document.getElementById("emptyReview").innerHTML = "No review yet. Create one now";
   var item = element.getAttribute("item");
-  currentIndex = item;
-  document.getElementById("review").textContent =
-    "Review for " + Restaurant_array[item].ReviewTitle;
-  document.getElementById("commentBody").textContent = "";
+  ReviewedCurrent_index = item;
+  document.getElementById("review").textContent = "Review for " + Restaurant_array[item].RestaurantTitle;
+  document.getElementById("NewReviewbody").textContent = "";
 
   for (var i = 0; i < Reviewed_array.length; i++) {
-    if (Reviewed_array[i].ReviewResturantsID === Restaurant_array[item].RestaurantID) {
-      document.getElementById("RestaurantReview").innerHTML = "";
-      selectedRestaurant = Restaurant_array[item].RestaurantID;
-      star = "";
-      var html =
-        '<div class="text-center" style="width:100%;">                                                           \
-                            <div class="card">                                                                                  \
-                                <div class="card-body">                                                                         \
-                                    <p class="card-text" id="rating' +
-        i +
-        '">' +
-        Reviewed_array[i].ReviewTitle +
-        "</p>               \
-                                    <small>by " +
-        Reviewed_array[i].ReviewByUserName +
-        " @ " +
-        Reviewed_array[i].DatePost +
-        "</small>   \
-                                </div>                                                                                          \
-                            </div>                                                                                              \
-                        </div>";
-      document
-        .getElementById("commentBody")
-        .insertAdjacentHTML("beforeend", html);
+      if (Reviewed_array[i].ReviewResturantsID=== Restaurant_array[item].RestaurantID) {
+          document.getElementById("emptyReview").innerHTML = "";
+          selectedReviewId = Restaurant_array[item].RestaurantID;
+          images = Reviewed_array[item].ReviewPhoto;
+          star = "";
+          var html = '<div class="text-center" style="width:100%;">                                                           \
+                          <div class="card">                                                                                  \
+                              <div class="card-body">\
+                                <div class="card col-md-3" ><img class="card-img-top" src="'+ images +'alt="Card image cap"> \
+                                    <p class="card-text" id="rating' + i + '">' + Reviewed_array[i].ReviewTitle + "</p>               \
+                                  <small>by " + Reviewed_array[i].ReviewByUserName + " @ " + Reviewed_array[i].DatePost + "</small>   \
+                              </div>                                                                                          \
+                          </div>                                                                                              \
+                      </div>";
+          document.getElementById("NewReviewbody").insertAdjacentHTML('beforeend', html);
 
-      var star = "";
-      for (var j = 0; j < Reviewed_array[i].Ratings; j++) {
-        console.log(i);
-        star += "<img src='images/popcorn.png' style='width:50px' />";
+        
+          var star = "";
+          star += "<i class='far fa-trash-alt fa-2x edit' data-dismiss='modal' item='" + i + "' onClick='deleteComment(this)' ></i>";
+          star += "<i class='far fa-edit fa-2x edit' data-toggle='modal' data-target='#ReviewModal' data-dismiss='modal' item='" + i + "' onClick='showRestaurantPost(this)' ></i>";
+          document.getElementById("rating" + i).insertAdjacentHTML('beforebegin', star + "<br/>");
       }
-      star +=
-        "<i class='far fa-trash-alt fa-2x edit' data-dismiss='modal' item='" +
-        i +
-        "' onClick='deleteComment(this)' ></i>";
-      star +=
-        "<i class='far fa-edit fa-2x edit' data-toggle='modal' data-target='#editCommentModal' data-dismiss='modal' item='" +
-        i +
-        "' onClick='editComment(this)' ></i>";
-      document
-        .getElementById("rating" + i)
-        .insertAdjacentHTML("beforebegin", star + "<br/>");
-    }
   }
 }

@@ -9,7 +9,6 @@
             var UserID,UserProfilePictures,PassWord,UserName,Token;
             Token=sessionStorage.getItem("token");
             UserName=sessionStorage.getItem("username");
-           
         </script>
     </head>
     <body onload="getReviewDetails()">
@@ -25,16 +24,11 @@
             <!-- Displays thumbnails of the movies here -->
             <div id="ReviewsTable" class="row"></div>
         </div>
-        <!-- Include the movies modal here -->
-        <div w3-include-html="Restaurant-modal.html"></div>
-        <!-- Include the comments modal here -->
         <div w3-include-html="RestaurantReview-modal.html"></div>
         <!-- Include the new comments modal here -->
         <div w3-include-html="new-Review-modal.html"></div>
         <!-- Include the edit comments modal here -->
         <div w3-include-html="edit-Review-modal.html"></div>
-        <!-- Include the message modal here -->
-        <div w3-include-html="message-modal.html"></div>
          <!-- Include the register modal here -->
         <div w3-include-html="register-modal.html"></div>
          <!-- Include the login modal here -->
@@ -61,7 +55,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <script src="https://kit.fontawesome.com/86ec7c1143.js" ></script>
     <script src="WebsiteJS/app.js"></script>
-    <script src="WebsiteJS/Restaurant.js"></script>
     <script src="WebsiteJS/register.js"></script>
     <script src="WebsiteJS/login.js"></script>
     <script src="WebsiteJS/checkingToken.js"></script>
