@@ -42,7 +42,11 @@ class UserProfileDB{
         var sql = "UPDATE userprofiledata SET UserProfilePictures = ?,FirstName = ?,LastName = ?, Gender = ?, Address = ?, PhoneNumber = ?, Email = ?,UserDescription = ? WHERE UserName = ?";
         return db.query(sql,[UserProfilePictures,FirstName,LastName,Gender,Address,PhoneNumber,Email,UserDescription, UserName],callback);
     }
-    
+    getspecific(User,callback){
+        var sql = "SELECT distinct UserID,UserName,FirstName,LastName,Gender,Address,PhoneNumber,Email,PassWord,UserProfilePictures,UserDescription FROM userprofiledata WHERE UserName = ?";
+        return db.query(sql,[User],callback);
+    }
+
 
     ////////////////////////////////////   
 }   

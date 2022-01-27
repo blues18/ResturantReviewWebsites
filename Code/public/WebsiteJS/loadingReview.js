@@ -25,7 +25,7 @@ function displayReviewPost() {
   for (var count = 0; count < totalReviewPost; count++) {
     var reviewedimage = Reviewed_array[count].ReviewPhoto;
     var ReviewTitle = Reviewed_array[count].ReviewTitle;
-    var numberofID = Reviewed_array[count].ReviewID
+    var numberofID = Reviewed_array[count].ReviewID;
     var cell =
       '<div class="card col-md-3" ><img class="card-img-top" src="' +
       reviewedimage +
@@ -33,7 +33,7 @@ function displayReviewPost() {
                         <div class="card-body"><i class="far fa-comment fa-lg" style="float:left;cursor:pointer" data-toggle="modal" data-target="#editReviewModal" item="' +
       count +
       '" onClick="editReview(this)"></i>\
-                        <div class="card-body"><i class="fa fa-trash" style="float:right;cursor:pointer" data-toggle="modal" data-target="#" item="' +
+                        </li> <div class="card-body" ><i class="fa fa-trash" style="float:right;cursor:pointer;" data-toggle="modal" item="' +
       count +
       '" onClick="deleteReview(this)"></i>\
                         <h5 style="padding-left:30px;cursor:pointer" data-toggle="modal" data-target="#ReviewModal" class="card-title" item="' +
@@ -42,6 +42,7 @@ function displayReviewPost() {
       ReviewTitle +
       "</h5></div>\
 </div>";
+
     table.insertAdjacentHTML("beforeend", cell);
     Review_Count++;
 
@@ -81,18 +82,30 @@ function editReview(element) {
 
   currentIndex = item;
 
-  document.getElementById("editReviewResturantsID").value = Reviewed_array[item].ReviewResturantsID;
-  document.getElementById("editReviewUserID").value  = Reviewed_array[item].ReviewUserID;
-  document.getElementById("editReviewTitle").value = Reviewed_array[item].ReviewTitle;
-  document.getElementById("editReviewimage").value = Reviewed_array[item].ReviewPhoto;
-  document.getElementById("editReviewRestaurantName").value = Reviewed_array[item].ReviewRestaurantName;
-  document.getElementById("editOverallratings").value = Reviewed_array[item].Ratings;
-  document.getElementById("editRatingPrice").value = Reviewed_array[item].RatingPrice;
-  document.getElementById("editReviewRestaurantHyperlink").value = Reviewed_array[item].ReviewRestuarntHyperLink;
-  document.getElementById("editRatingFood").value = Reviewed_array[item].RatingFood;
-  document.getElementById("editRatingService").value = Reviewed_array[item].RatingService;
-  document.getElementById("editReviewComment").value = Reviewed_array[item].ReviewComment;
-  document.getElementById("editReviewByUserName").value = Reviewed_array[item].ReviewByUserName;
+  document.getElementById("editReviewResturantsID").value =
+    Reviewed_array[item].ReviewResturantsID;
+  document.getElementById("editReviewUserID").value =
+    Reviewed_array[item].ReviewUserID;
+  document.getElementById("editReviewTitle").value =
+    Reviewed_array[item].ReviewTitle;
+  document.getElementById("editReviewimage").value =
+    Reviewed_array[item].ReviewPhoto;
+  document.getElementById("editReviewRestaurantName").value =
+    Reviewed_array[item].ReviewRestaurantName;
+  document.getElementById("editOverallratings").value =
+    Reviewed_array[item].Ratings;
+  document.getElementById("editRatingPrice").value =
+    Reviewed_array[item].RatingPrice;
+  document.getElementById("editReviewRestaurantHyperlink").value =
+    Reviewed_array[item].ReviewRestuarntHyperLink;
+  document.getElementById("editRatingFood").value =
+    Reviewed_array[item].RatingFood;
+  document.getElementById("editRatingService").value =
+    Reviewed_array[item].RatingService;
+  document.getElementById("editReviewComment").value =
+    Reviewed_array[item].ReviewComment;
+  document.getElementById("editReviewByUserName").value =
+    Reviewed_array[item].ReviewByUserName;
   //console.log(comment_array[item].rating);
   //displayColorPopcorn('editpop', comment_array[item].rating);
 }
@@ -102,14 +115,33 @@ function deleteComment(element) {
   var response = confirm("Are you sure you want to delete this comment?");
 
   if (response == true) {
-      var item = element.getAttribute("item"); //get the current item
-      var delete_comment_url = comment_url + "/" + comment_array[item]._id;
-      var eraseComment = new XMLHttpRequest();
-      eraseComment.open("DELETE", delete_comment_url, true);
-      eraseComment.onload = function() {
-          fetchComments();
-      };
-      eraseComment.send();
+    var item = element.getAttribute("item"); //get the current item
+    var delete_comment_url = comment_url + "/" + comment_array[item]._id;
+    var eraseComment = new XMLHttpRequest();
+    eraseComment.open("DELETE", delete_comment_url, true);
+    eraseComment.onload = function () {
+      fetchComments();
+    };
+    eraseComment.send();
   }
 }
 
+var Usertoken = sessionStorage.getItem("token");
+if (Usertoken != null) {
+  $("#registerMenu").hide();
+  $("#LoginMeun").hide();
+  $("#LogOutMeun").show();
+  $("#usereditMeun").show();
+  $("#CreateReviewMeun").show();
+  var Profile = new XMLHttpRequest();
+  Profile.open("POST", "http://127.0.0.1:8080/imageUpload", true); //get data
+  Profile.setRequestHeader("Content-Type", "application/json");
+  Profile.onload = function (){
+
+    console.log(Profile.responseText);
+  };
+  var payload={Token:Token};
+  Profile.send(JSON.stringify(payload));
+} else {
+  $("#CreateReviewMeun").hide();
+}

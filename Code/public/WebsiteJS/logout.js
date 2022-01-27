@@ -4,8 +4,8 @@ function logoutMe() {
     $('#LoginMeun').show();
     $('#LogOutMeun').hide();
     $('#usereditMeun').hide();
-    $('#CreateReviewMeun').hide(); 
-
+    $('#CreateReviewMeun').hide();
+  
     sessionStorage.removeItem("token");
     sessionStorage.removeItem("username")    
 }

@@ -18,6 +18,7 @@ function loginMe(){
             document.getElementById("LoginMeun").style.display="none";
             document.getElementById("LogOutMeun").style.display="block";
             document.getElementById("usereditMeun").style.display="block";
+            $('#CreateReviewMeun').show()
             sessionStorage.setItem("token", Usertoken.result);
             sessionStorage.setItem("username",Usertoken.username);
 

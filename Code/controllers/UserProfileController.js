@@ -152,5 +152,23 @@ function NewUpdating(request,respond){
     }
 }
 
+ function getspecific(request,respond){
+    var token = request.body.Token;
+    try {
+        var decoded = jwt.verify(token,verysecret);
+        userprofileDB.distinctImage(decoded, function(error,result){
+            if(error){
+                respond.json(console.log("failed2"));
+            }
+            else{
+                respond.json(result);
+            }
+        });       
+    } catch (error) {
+        respond.json({result:"invaild token"});
+    }
+}
+
+
 ///////////////////////////////////////////////testing 
-module.exports={getAllUserProfile,addUserProfile,UpdateUserProfile,DeleteUserProfile,GetUserAuthentications,GetTokenUser,distinctImage,NewUpdating};
+module.exports={getAllUserProfile,addUserProfile,UpdateUserProfile,DeleteUserProfile,GetUserAuthentications,GetTokenUser,distinctImage,NewUpdating,getspecific};

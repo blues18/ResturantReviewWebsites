@@ -5,6 +5,12 @@
         <meta charset = "utf-8 ">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
         <link rel="stylesheet" href="CSS/Style.css">
+        <script>
+            var UserID,UserProfilePictures,PassWord,UserName,Token;
+            Token=sessionStorage.getItem("token");
+            UserName=sessionStorage.getItem("username");
+           
+        </script>
     </head>
     <body onload="getReviewDetails()">
         <!-- Include top navigation here -->
@@ -55,7 +61,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <script src="https://kit.fontawesome.com/86ec7c1143.js" ></script>
     <script src="WebsiteJS/app.js"></script>
-    <script src="WebsiteJS/comments.js"></script>
     <script src="WebsiteJS/Restaurant.js"></script>
     <script src="WebsiteJS/register.js"></script>
     <script src="WebsiteJS/login.js"></script>

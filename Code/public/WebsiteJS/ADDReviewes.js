@@ -30,6 +30,8 @@ function addReview() {
   // Convert the data in Comment object to JSON format before sending to the server.
   postReview.send(JSON.stringify(payload)); 
   }
+
+  
   
 
   
