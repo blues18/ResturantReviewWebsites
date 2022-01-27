@@ -7,7 +7,7 @@ function getRestaurantDetails() {
     //get all the movies records into our movie array
     Restaurant_array = JSON.parse(request.responseText);
     //Fetch the comments as well
-    //restaurantsReview();
+    restaurantsReview();
     console.log(Restaurant_array); // output to console
     //call the function so as to display all movies tiles for "Now Showing"
     displayRestaurant(category);
@@ -78,3 +78,4 @@ function showRestaurantdetails(element) {
 function buyTicket() {
   window.open(Restaurant_array[currentIndex].buy, "_blank");
 }
+

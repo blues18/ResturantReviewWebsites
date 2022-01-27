@@ -42,6 +42,7 @@ class UserProfileDB{
         var sql = "UPDATE userprofiledata SET UserProfilePictures = ?,FirstName = ?,LastName = ?, Gender = ?, Address = ?, PhoneNumber = ?, Email = ?,UserDescription = ? WHERE UserName = ?";
         return db.query(sql,[UserProfilePictures,FirstName,LastName,Gender,Address,PhoneNumber,Email,UserDescription, UserName],callback);
     }
+    
 
     ////////////////////////////////////   
 }   
