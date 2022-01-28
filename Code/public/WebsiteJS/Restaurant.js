@@ -74,9 +74,17 @@ function showRestaurantdetails(element) {
   document.getElementById("trailer1").src = Restaurant_array[item].video1;
   document.getElementById("trailer2").src = Restaurant_array[item].video2;
 }
-//This function opens a new window/tab and loads the
-//particular movie in the cinema website
-function buyTicket() {
-  window.open(Restaurant_array[currentIndex].buy, "_blank");
+
+function getRatinginAsc(){
+  var RatingsinAsc = new XMLHttpRequest();
+  RatingsinAsc.open("GET","http://127.0.0.1:8080/RestaurantRatingInASC",true);
+  RatingsinAsc.setRequestHeader("Content-Type","application/json");
+  RatingsinAsc.onload=function (){ 
+      var displayRatingAsc = JSON.parse(RatingsinAsc.responseText);
+      console.log(displayRatingAsc);
+      displayRestaurant()
+          
+  }
+  RatingsinAsc.send();
 }
 

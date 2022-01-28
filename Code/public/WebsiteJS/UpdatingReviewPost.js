@@ -13,9 +13,6 @@ function updateReview() {
     Reviewed_array[currentIndex].ReviewByUserName =
       document.getElementById("editReviewByUserName").value;
 
-    Reviewed_array[currentIndex].ReviewPhoto =
-      document.getElementById("myinputreview2").value;
-
     Reviewed_array[currentIndex].ReviewRestaurantName =
       document.getElementById("editReviewRestaurantName").value;
 
