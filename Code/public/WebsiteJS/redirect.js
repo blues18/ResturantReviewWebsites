@@ -6,7 +6,8 @@ $(document).ready(function (){
         $('#LoginMeun').hide();  
         $('#LogOutMeun').show();
         $('#usereditMeun').show();
-            
+        $('#userdisplay').show();   
+        
     } else{
         window.location.href="index.html";
     }

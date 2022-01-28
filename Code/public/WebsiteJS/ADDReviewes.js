@@ -9,6 +9,10 @@ function addReview(){
           $('#successfulModal').modal('show');
           location.reload(" ");    
     };
+
+   
+    ReviewByUserName = sessionStorage.getItem("username");
+    
     var ReviewResturantsID = document.getElementById("ReviewRestaurantsID").value;
     var ReviewUserID = document.getElementById("ReviewUserID").value;
     var ReviewTitle = document.getElementById("ReviewTitle").value;

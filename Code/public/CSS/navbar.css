@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+body{
+  background-color: rgb(94, 94, 94);
+  background-image: url(https://images.pexels.com/photos/2792186/pexels-photo-2792186.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
+}
+
+.navbar{
+    font-family: 'Poppins', sans-serif; 
+    background: -webkit-linear-gradient(left, #e1e1e1, #000000);
+}
+
+  li, a, button{
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color:#263237;
+    text-decoration: none; 
+  }
+
+  header{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 30px 10%;
+  }
+
+
+  .navlinks{
+    list-style: none;
+  }
+
+  .navlinks li{
+     display: inline-block;
+     padding: 10px 50px;
+  }
+  .navlinks li a {
+    transition: all 0.3s ease 0s;
+  }
+  
+  .navlinks li a:hover{
+    color: lightblue
+  }
+
+  button {
+    margin-left: 10px;
+    padding: 10px 10px; 
+    background-color: rgba(0,126,169,1);
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+  }
+
+  button:hover { 
+    background-color: rgba(0,100,170,1);
+  } 
+
+   div{
+    margin-right: auto;
+    font-family: 'Merriweather', serif;
+    color: rgb(78, 183, 218);
+    font-size: 30px;
+    font-weight: 400;
+  }
+

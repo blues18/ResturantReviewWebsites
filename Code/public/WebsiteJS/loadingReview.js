@@ -88,8 +88,6 @@ function editReview(element) {
     Reviewed_array[item].ReviewUserID;
   document.getElementById("editReviewTitle").value =
     Reviewed_array[item].ReviewTitle;
-  document.getElementById("editReviewimage").value =
-    Reviewed_array[item].ReviewPhoto;
   document.getElementById("editReviewRestaurantName").value =
     Reviewed_array[item].ReviewRestaurantName;
   document.getElementById("editOverallratings").value =
@@ -106,24 +104,6 @@ function editReview(element) {
     Reviewed_array[item].ReviewComment;
   document.getElementById("editReviewByUserName").value =
     Reviewed_array[item].ReviewByUserName;
-  //console.log(comment_array[item].rating);
-  //displayColorPopcorn('editpop', comment_array[item].rating);
-}
-
-//This function deletes the selected comment in a specific movie
-function deleteComment(element) {
-  var response = confirm("Are you sure you want to delete this comment?");
-
-  if (response == true) {
-    var item = element.getAttribute("item"); //get the current item
-    var delete_comment_url = comment_url + "/" + comment_array[item]._id;
-    var eraseComment = new XMLHttpRequest();
-    eraseComment.open("DELETE", delete_comment_url, true);
-    eraseComment.onload = function () {
-      fetchComments();
-    };
-    eraseComment.send();
-  }
 }
 
 var Usertoken = sessionStorage.getItem("token");

@@ -11,6 +11,7 @@ function getRestaurantDetails() {
     console.log(Restaurant_array); // output to console
     //call the function so as to display all movies tiles for "Now Showing"
     displayRestaurant(category);
+    
   };
 
   //This command starts the calling of the movies web api

@@ -5,6 +5,9 @@ function logoutMe() {
     $('#LogOutMeun').hide();
     $('#usereditMeun').hide();
     $('#CreateReviewMeun').hide();
+    $('#userdisplay').hide();
+    $('#submitComment').hide();
+    
   
     sessionStorage.removeItem("token");
     sessionStorage.removeItem("username")    

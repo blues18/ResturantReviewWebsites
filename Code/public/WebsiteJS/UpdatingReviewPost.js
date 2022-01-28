@@ -14,7 +14,7 @@ function updateReview() {
       document.getElementById("editReviewByUserName").value;
 
     Reviewed_array[currentIndex].ReviewPhoto =
-      document.getElementById("editReviewimage").value;
+      document.getElementById("myinputreview2").value;
 
     Reviewed_array[currentIndex].ReviewRestaurantName =
       document.getElementById("editReviewRestaurantName").value;
@@ -45,6 +45,19 @@ function updateReview() {
     updatingpost.send(JSON.stringify(Reviewed_array[currentIndex]));
   }
 }
+function encode3(){
+  var selectedfile = document.getElementById("myinputreview2").files;
+  if (selectedfile.length > 0) {
+      var imageFile = selectedfile[0];
+      var filereader = new FileReader();
+      filereader.onload = function (fileLoadedEvent){
+            ReviewPhoto = fileLoadedEvent.target.result;
+            document.getElementById("target2").src = ReviewPhoto;
+      }
+      filereader.readAsDataURL(imageFile);
+  }
+}
+
 
 function deleteReview(element) {
   var response = confirm("Are you sure you want to delete this post?");

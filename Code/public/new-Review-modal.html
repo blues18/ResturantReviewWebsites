@@ -6,11 +6,6 @@
                 <button type="button" class="close bg-light" data-dismiss="modal">
                     <span>&times;</span>
                 </button>
-                <script>
-                    var UserID,UserProfilePictures,PassWord,UserName,Token;
-                    Token=sessionStorage.getItem("token");
-                    UserName=sessionStorage.getItem("username");         
-                </script>
             </div>
             <div class="modal-body px-5">
                 <!-- All input to be sent to server, and buttons must be within the 'form' tag -->
@@ -34,7 +29,7 @@
                         <input type="text" id="ReviewTitle" class="form-control" required>
 
                         <label for="username">ReviewByUserName</label>
-                        <input type="text" id="ReviewByUserName" class="form-control" required>
+                        <div type="text" id="ReviewByUserName" class="form-control"></div>
                         
                         <label for="RestaurantName">ReviewRestaurantName</label>
                         <input type="text" id="ReviewRestaurantName" class="form-control" >

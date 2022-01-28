@@ -18,12 +18,18 @@ function loginMe(){
             document.getElementById("LoginMeun").style.display="none";
             document.getElementById("LogOutMeun").style.display="block";
             document.getElementById("usereditMeun").style.display="block";
+            document.getElementById("userdisplay").style.display="block";
+            document.getElementById("submitComment").disabled=false;
+        
             $('#CreateReviewMeun').show()
             sessionStorage.setItem("token", Usertoken.result);
             sessionStorage.setItem("username",Usertoken.username);
 
             UserNameDisplay=Usertoken.username;
-            document.getElementById('displayUser').value=UserNameDisplay;
+            document.getElementById('displayUser').innerHTML = UserNameDisplay;
+            document.getElementById('userdisplay').innerHTML = UserNameDisplay;
+            document.getElementById('ReviewByUserName').innerHTML = UserNameDisplay;
+            exports.Usertoken = Usertoken;
         }else {
             $('#loginFailed').modal('show');
         }

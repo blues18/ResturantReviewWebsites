@@ -14,13 +14,8 @@
             <li class="nav-item" id="RestaurantReviews">
                 <a class="nav-link" href="ReviewPage-modal.html" id="coming" onClick="getReviewDetails();">Review</a>
             </li>
-            <li class="nav-item" id="aboutMenu">
-                    <a class="nav-link" href="#" id="about" data-toggle="modal" data-target="#messageModal">  
-                            About
-                </a> 
-            </li>
         </ul>
-        <ul class="navbar-nav" style="margin-left: 60%">
+        <ul class="navbar-nav" style="margin-left: 50%">
             <li class="nav-item" id="searchMeun">
                 <input type="text" class="nav-link" href="#" id="mysearch" name="search" data-target="#" placeholder="search.."> 
                 <button type="submit" onclick="getSpecificRestaurant();"><i class="fa fa-search"></i></button>
@@ -39,8 +34,15 @@
                 <a class="nav-link" href="index.html" id="Logout" onclick="logoutMe();">
                     LogOut
                 </a>
+            </li>   
+            </a>
+            <li class="nav-item" id="userdisplay" data-toggle="modal" style="display:none;">
+                <a class="nav-link" href="#">        
+            </a>
+            </li>
                 <li class="nav-item" id="usereditMeun" data-toggle="modal" style="display:none;">
                     <a class="nav-link" href="userEdit.html">
+                        <i class="fa fa-user"></i>
                     Profile
                 </a>
             </li>
