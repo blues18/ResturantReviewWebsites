@@ -30,7 +30,7 @@ function displayReviewPost() {
       '<div class="card col-md-3" ><img class="card-img-top" src="' +
       reviewedimage +
       '" alt="Card image cap">\
-                        <div class="card-body"><i class="far fa-comment fa-lg" style="float:left;cursor:pointer" data-toggle="modal" data-target="#editReviewModal" item="' +
+                        <div class="card-body"><i class="far fa-comments fa-lg" style="float:left;cursor:pointer" data-toggle="modal" data-target="#editReviewModal" item="' +
       count +
       '" onClick="editReview(this)"></i>\
                         </li> <div class="card-body" ><i class="fa fa-trash" style="float:right;cursor:pointer;" data-toggle="modal" item="' +

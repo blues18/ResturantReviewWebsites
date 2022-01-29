@@ -28,26 +28,30 @@ function displayRestaurant() {
   for (var count = 0; count < totalRestaurant; count++) {
     var howmany = Restaurant_array[count].RestaurantID;
     var thumbnail = Restaurant_array[count].RestaurantImage;
-    var Description = Restaurant_array[count].RestaurantDescription;
+    var Title = Restaurant_array[count].RestaurantTitle;
+    var Ratings = Restaurant_array[count].Ratings;
+    var Description =Restaurant_array[count].RestaurantDescription;
+    var address = Restaurant_array[count].RestaurantAddress;
+    var openinghour = Restaurant_array[count].OpeningHourRestaurant;
     var cell =
       '<div class="card col-md-3" ><img class="card-img-top" src="' +
       thumbnail +
       '" alt="Card image cap">\
-                        <div class="card-body"><i class="far fa-comment fa-lg" style="float:left;cursor:pointer" data-toggle="modal" data-target="#RestaurantReview" item="' +
+                        <div class="card-body"><i class="far fa-comments fa-lg" style="float:left;cursor:pointer" data-toggle="modal" data-target="#RestaurantReview" item="' +
       count +
       '" onClick="getReview(this)"></i>\
                         <h5 style="padding-left:30px;cursor:pointer" data-toggle="modal" data-target="#restuarantModal" class="card-title" item="' +
       count +
       '" onClick="showRestaurantdetails(this)">' +
-      Description +
-      "</h5></div>\
+      Title +"("+Ratings +")"+
+      "</h5>"+ Description + "<p></p>"+ address +"<p></p>"+ openinghour+"</div>\
 </div>";
 
     table.insertAdjacentHTML("beforeend", cell);
     Restaurant_Count++;
     
 
-    message = howmany + " Restaurant singapore wide"; //displaying how many restaurant
+    message = howmany + " Restaurant singapore wide"; 
     document.getElementById("summary").textContent = message;
     document.getElementById("parent").textContent = "";
   }
@@ -87,4 +91,3 @@ function getRatinginAsc(){
   }
   RatingsinAsc.send();
 }
-

@@ -5,6 +5,7 @@
         <meta charset = "utf-8 ">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
         <link rel="stylesheet" href="CSS/Style.css">
+        <link rel="stylesheet" href="CSS/navbar.css">
         <script>
             var UserID,UserProfilePictures,PassWord,UserName,Token;
             UserName=sessionStorage.getItem("username")
@@ -14,12 +15,16 @@
     <body onload="getRestaurantDetails()">
         <!-- Include top navigation here -->
         <div w3-include-html="top-RestaurantNavigation.html"></div>
-        <div class="container2"></div>
-            <button class ="DisplayListOfCuisines" value="Western" id="thisCuisines" onclick="RestaurantCuisines1();">Western</button>
-            <button class ="DisplayListOfCuisines" value="Chinese" id="thisCuisines2" onclick="RestaurantCuisines2();">Chinese</button>
-            <button class ="DisplayListOfCuisines" value="Japanese" id="thisCuisines3" onclick="RestaurantCuisines3();">Japanese</button>
-            <button class ="DisplayListOfCuisines" value="Malay" id="thisCuisines4" onclick="RestaurantCuisines4();">Malay</button>
-        </div>
+            <div class="container2">
+                <button class ="DisplayListOfCuisines"  id="ALLCuisines" onclick="getRestaurantDetails();">ALL</button>
+                <button class ="DisplayListOfCuisines" value="Western" id="thisCuisines" onclick="RestaurantCuisines1();">Western</button>
+                <button class ="DisplayListOfCuisines" value="Chinese" id="thisCuisines2" onclick="RestaurantCuisines2();">Chinese</button>
+                <button class ="DisplayListOfCuisines" value="Japanese" id="thisCuisines3" onclick="RestaurantCuisines3();">Japanese</button>
+                <button class ="DisplayListOfCuisines" value="Malay" id="thisCuisines4" onclick="RestaurantCuisines4();">Malay</button>
+                <button class="Ratings" style ="margin-left:60%; "id="find_ratings_in_asc" onclick="getRestaurantRatingASC()">Rating &#8659;</button>
+                <button class="Ratings" id="find_ratings_in_desc" onclick="getRestaurantRatingDESC()">Rating &#8657;</button> 
+            </div>    
+        </div>        
         <div class="container">
             <!-- The message will be shown when the page loads and will
             disappear after the movies are loaded -->
@@ -30,12 +35,11 @@
                 using the browser console panel now. Please use either Firefox
                 or Chrome to render this webpage.
             </div>
-            <p>
+            <p></p>
                 <!-- This is the heading showing how many movies are there -->
-            <h3 id="summary"></h3>
-            </p>
-            <!-- Displays thumbnails of the movies here -->
-            <div id="RestaurantTable" class="row"></div>
+            <h3 class="Summary" id="summary"></h3>
+
+            <div id="RestaurantTable" class=row></div>
         </div>
         <!-- Include the movies modal here -->
         <div w3-include-html="Restaurant-modal.html"></div>
@@ -79,4 +83,5 @@
     <script src="WebsiteJS/RestaurantReviewsPost.js"></script>
     <script src="WebsiteJS/ADDReviewes.js"></script>
     <script src="WebsiteJS/loadingReview.js"></script>
+    <script src="WebsiteJS/RestuarantRatings.js"></script>
 </html>

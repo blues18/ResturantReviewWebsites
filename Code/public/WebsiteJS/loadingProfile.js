@@ -10,7 +10,7 @@ $(document).ready(function (){
         document.getElementById("LoginMeun").style.display="none";
         document.getElementById("LogOutMeun").style.display="block";
         document.getElementById("usereditMeun").style.display="block";
-        document.getElementById("userdisplay").style.display="block";
+        //document.getElementById("userdisplay").style.display="block";
         
         console.log(Profile.responseText);
         UserID=displayProfile[0].UserID

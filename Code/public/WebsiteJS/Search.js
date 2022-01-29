@@ -1,4 +1,5 @@
-function getSpecificRestaurant() {
+
+function getSpecificRestaurant(){
   var request = new XMLHttpRequest();
   request.open("POST", "http://127.0.0.1:8080/RestaurantSearch", true);
   request.setRequestHeader("Content-Type", "application/json");
@@ -28,7 +29,7 @@ function displaythisRestaurant() {
       '<div class="card col-md-3" ><img class="card-img-top" src="' +
       thumbnail +
       '" alt="Card image cap">\
-                        <div class="card-body"><i class="far fa-comment fa-lg" style="float:left;cursor:pointer" data-toggle="modal" data-target="#RestaurantReview" item="' +
+                        <div class="card-body"><i class="far fa-comments fa-lg" style="float:left;cursor:pointer" data-toggle="modal" data-target="#RestaurantReview" item="' +
       count +
       '" onClick="getReview(this)"></i>\
                         <h5 style="padding-left:30px;cursor:pointer" data-toggle="modal" data-target="#restuarantModal" class="card-title" item="' +
@@ -46,3 +47,11 @@ function displaythisRestaurant() {
     document.getElementById("parent").textContent = "";
   }
 }
+
+var input = document.getElementById("mysearch")
+input.addEventListener("keyup",function(entered){
+  if(entered.keyCode===13){
+    entered.preventDefault();
+    document.getElementById("submit").click();
+  }
+});
