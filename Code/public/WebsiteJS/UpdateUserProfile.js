@@ -24,6 +24,7 @@ function update(){
     }
     FirstName = document.getElementById("FirstName").value;
     LastName = document.getElementById("LastName").value;
+    PassWord= document.getElementById("Password").value;
     Gender = document.getElementById("Gender").value;
     Address = document.getElementById("Address").value;
     Gender = document.getElementById("Gender").value;
@@ -32,7 +33,7 @@ function update(){
     Email = document.getElementById("Email").value;
     UserDescription = document.getElementById("UserDescription").value;
     
-    var payload = {Token:Token,UserProfilePictures:UserProfilePictures,FirstName:FirstName,LastName:LastName,Gender:Gender,Address:Address,PhoneNumber:PhoneNumber,Email:Email,UserDescription:UserDescription}//get this from Userprofile controller where we requested the body.username and password 
+    var payload = {Token:Token,UserProfilePictures:UserProfilePictures,FirstName:FirstName,LastName:LastName,PassWord:PassWord,Gender:Gender,Address:Address,PhoneNumber:PhoneNumber,Email:Email,UserDescription:UserDescription}//get this from Userprofile controller where we requested the body.username and password 
     updateUserDatails.send(JSON.stringify(payload));
 } 
 
@@ -47,7 +48,8 @@ function deletethis() {
         eraseuser.onload = function() {
 
             $('#successfulModal').modal('show'); 
-            window.location.href="index.html";         
+            window.location.href="index.html"; 
+            logoutMe();
         }
 
         UserID = document.getElementById("userid").value;

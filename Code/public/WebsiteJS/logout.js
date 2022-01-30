@@ -8,7 +8,7 @@ function logoutMe() {
     $('#userdisplay').hide();
     $('#submitComment').hide();
     
-  
+    
     sessionStorage.removeItem("token");
     sessionStorage.removeItem("username")    
 }

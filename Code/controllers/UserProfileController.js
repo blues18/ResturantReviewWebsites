@@ -131,6 +131,7 @@ function NewUpdating(request,respond){
     var UserProfilePictures = request.body.UserProfilePictures;
     var FirstName = request.body.FirstName;
     var LastName = request.body.LastName;
+    var PassWord =  bcrypt.hashSync(request.body.PassWord,10);
     var Gender = request.body.Gender;
     var Address = request.body.Address;
     var PhoneNumber = request.body.PhoneNumber;
@@ -139,7 +140,7 @@ function NewUpdating(request,respond){
     var token = request.body.Token;
     try {
         var decoded = jwt.verify(token,verysecret);
-        userprofileDB.NewUpdating(decoded,UserProfilePictures,FirstName,LastName,Gender,Address,PhoneNumber,Email,UserDescription, function(error,result){
+        userprofileDB.NewUpdating(decoded,UserProfilePictures,FirstName,LastName,PassWord,Gender,Address,PhoneNumber,Email,UserDescription, function(error,result){
             if(error){
                 respond.json(error);
             }

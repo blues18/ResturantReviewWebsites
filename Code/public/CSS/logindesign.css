@@ -1,0 +1,23 @@
+.form-img{
+    text-align: center;
+    border-radius: 20px;
+}
+
+.modal-content{
+    background:linear-gradient(80deg, #575252 20%, #272721 60%);
+    border-radius: 20px;
+}
+.btnlogin{
+    margin-top: 10px;
+    text-align: center;
+    background: #21c7ff;
+    border-radius: 10px;
+    font-size: 20px;
+    width:100%;
+    height:10%;
+}
+
+.login{
+    background:linear-gradient(80deg, #575252 20%, #272721 60%);
+}
+

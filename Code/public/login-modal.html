@@ -1,18 +1,24 @@
 <!-- this is a structure of Bootstrap Modal -->
 <div class="modal fade " id="LoginModal" tabindex="-1" role="dialog">
+	<link rel="stylesheet" href="CSS/logindesign.css">
 	<div class="modal-dialog modal-sm " role="document">
 		<div class="modal-content">
-			<div class="modal-body px-5">
+			<div class="modal-body px-10">
 				<form>
+					<div class="form-img">
+						<img class="img" src="images/restaurant-icon-vector-sign-symbol-isolated-white-background-logo-concept-your-web-mobile-app-design-134155298.jpg" style="border-radius: 20px;" width="100" height="100" class="d-inline-block align-top">
+					</div>
+					<p></p>
 					<div class="form-group">
 						<label for="exampleInputEmail1">Username</label>
-						<input type="usernamelogin" class="form-control" id="usernamelogin" aria-describedby="emailHelp" placeholder="Enter username">
+						<input type="usernamelogin" class="form-control" id="usernamelogin" class="login" placeholder="Enter username">
 					</div>
 					<div class="form-group">
 						<label for="exampleInputPassword1">Password</label>
-						<input type="passwordlogin" class="form-control" id="passwordlogin" placeholder="Password">
+						<input type="passwordlogin" class="form-control" id="passwordlogin" class="login" placeholder="Password">
+						<P></P>
+						<button1 onclick="loginMe();" type="button" class="btnlogin">Enter</button1>					
 					</div>
-					<button onclick="loginMe();" type="button" class="btn btn-warning">Enter</button>
 				</form>
 			</div>
 		</div>

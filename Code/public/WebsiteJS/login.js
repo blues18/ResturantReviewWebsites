@@ -4,6 +4,7 @@ function loginMe(){
 
     LoginUser.open("POST","/Usertoken",true);
     LoginUser.setRequestHeader("Content-Type","application/json");
+
     LoginUser.onload=function (){
         
         $('#LoginModal').modal('hide');
@@ -14,12 +15,13 @@ function loginMe(){
 
         if(Usertoken.result != false) {
             $('#loginSuccess').modal('show');
+            $('#loginFailed').modal('hide');
             document.getElementById("registerMenu").style.display="none";
             document.getElementById("LoginMeun").style.display="none";
             document.getElementById("LogOutMeun").style.display="block";
             document.getElementById("usereditMeun").style.display="block";
             //document.getElementById("userdisplay").style.display="block";
-            document.getElementById("submitComment").disabled=false;
+            //document.getElementById("submitComment").disabled=false;
         
             $('#CreateReviewMeun').show()
             sessionStorage.setItem("token", Usertoken.result);
@@ -30,8 +32,8 @@ function loginMe(){
             //document.getElementById('userdisplay').innerHTML = UserNameDisplay;
             document.getElementById('ReviewByUserName').innerHTML = UserNameDisplay;
             //exports.Usertoken = Usertoken;
-        }else {
-            $('#loginFailed').modal('show');
+        }else{
+             $('#loginFailed').modal('show');
         }
     }
     
