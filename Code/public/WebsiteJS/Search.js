@@ -24,7 +24,11 @@ function displaythisRestaurant() {
   for (var count = 0; count < totalRestaurant; count++) {
     var howmany = Restaurant_array[count].RestaurantID;
     var thumbnail = Restaurant_array[count].RestaurantImage;
-    var Description = Restaurant_array[count].RestaurantDescription;
+    var Title = Restaurant_array[count].RestaurantTitle;
+    var Ratings = Restaurant_array[count].Ratings;
+    var Description =Restaurant_array[count].RestaurantDescription;
+    var address = Restaurant_array[count].RestaurantAddress;
+    var openinghour = Restaurant_array[count].OpeningHourRestaurant;
     var cell =
       '<div class="card col-md-3" ><img class="card-img-top" src="' +
       thumbnail +
@@ -35,8 +39,8 @@ function displaythisRestaurant() {
                         <h5 style="padding-left:30px;cursor:pointer" data-toggle="modal" data-target="#restuarantModal" class="card-title" item="' +
       count +
       '" onClick="showRestaurantdetails(this)">' +
-      Description +
-      "</h5></div>\
+      Title +"("+Ratings +")"+
+      "</h5>"+ Description + "<p></p>"+ address +"<p></p>"+ openinghour+"</div>\
 </div>";
 
     table.insertAdjacentHTML("beforeend", cell);

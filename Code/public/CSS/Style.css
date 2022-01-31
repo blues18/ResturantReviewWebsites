@@ -22,6 +22,11 @@ footer{
     color:#0cc0bd;
     font-weight: 700;
     font-size: 40px;
+    background: rgb(39, 39, 39);
+    border-radius: 20px;
+    width: 50%;
+    text-align: center;
+    padding: 5px;
 }
 
 .col-md-3{

@@ -1,14 +1,35 @@
-'<div class="card col-md-3" ><img class="card-img-top" src="' +
-    thumbnail +
-    '" alt="Card image cap">\
-                      <div class="card-body"><i class="far fa-comment fa-lg" style="float:left;cursor:pointer" data-toggle="modal" data-target="#RestaurantReview" item="' +
-    count +
-    '" onClick="getReview(this)"></i>\
-                      <h5 style="padding-left:30px;cursor:pointer" data-toggle="modal" data-target="#restuarantModal" class="card-title" item="' +
-    count +
-    '" onClick="showRestaurantdetails(this)">' +
-    Description + Ratings
-    "</h5></div>\
-</div>";
-
-
+<div class="col-7">
+    <table class="table table-hover table-responsive table-sm">
+        <tr>
+            <td><span class="badge badge-pill badge-dark font-weight-bold">RestaurantReviewName</span></td>
+            <td id="reviewRestaurantName"></td>
+        </tr>
+        <tr>
+            <td><span class="badge badge-pill badge-dark font-weight-bold">Overallratings</span></td>
+            <td id="overallratings" style=' width: 200px; word-break: break-all; word-wrap: break-word;'></td>
+        </tr>
+        <tr>
+            <td><span class="badge badge-pill badge-dark font-weight-bold">RatingPrice</span></td>
+            <td id="ratingPrice"></td>
+        </tr>
+    </table>
+</div>
+</div>
+<div class="col-xs-12 px-3"><span class="badge badge-pill badge-dark font-weight-bold float-left">RatingFood </span>
+    <p id="ratingFood"></p>
+</div>
+<div class="col-xs-12 px-3"><span class="badge badge-pill badge-dark font-weight-bold float-left">RatingService </span>
+    <p id="ratingService"></p>
+</div>
+<div class="col-xs-12 px-3"><span class="badge badge-pill badge-danger font-weight-bold float-left">reviedComment </span>
+    <p id="reviewComment"></p>
+</div>
+<div class="col-xs-12 px-3"><span class="badge badge-pill badge-danger font-weight-bold float-left">ReviewByUserName </span>
+    <p id="reviewByUserName"></p>
+</div>
+<div class="col-xs-12 px-3"><span class="badge badge-pill badge-danger font-weight-bold float-left">DatePost </span>
+    <p id="datePost"></p>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-secondary bg-dark" data-dismiss="modal">Close</button>
+</div>

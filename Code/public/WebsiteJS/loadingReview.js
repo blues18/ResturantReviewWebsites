@@ -25,23 +25,19 @@ function displayReviewPost() {
   for (var count = 0; count < totalReviewPost; count++) {
     var reviewedimage = Reviewed_array[count].ReviewPhoto;
     var ReviewTitle = Reviewed_array[count].ReviewTitle;
+    var ReviewComment = Reviewed_array[count].ReviewComment;
+    var DatePost = Reviewed_array[count].DatePost;
+    var ReviewByUserName = Reviewed_array[count].ReviewByUserName;
     var numberofID = Reviewed_array[count].ReviewID;
     var cell =
-      '<div class="card col-md-3" ><img class="card-img-top" src="' +
-      reviewedimage +
-      '" alt="Card image cap">\
-                        <div class="card-body"><i class="far fa-comments fa-lg" style="float:left;cursor:pointer" data-toggle="modal" data-target="#editReviewModal" item="' +
-      count +
-      '" onClick="editReview(this)"></i>\
-                        </li> <div class="card-body" ><i class="fa fa-trash" style="float:right;cursor:pointer;" data-toggle="modal" item="' +
-      count +
-      '" onClick="deleteReview(this)"></i>\
-                        <h5 style="padding-left:30px;cursor:pointer" data-toggle="modal" data-target="#ReviewModal" class="card-title" item="' +
-      count +
-      '" onClick="showRestaurantPost(this)">' +
-      ReviewTitle +
-      "</h5></div>\
-</div>";
+      '<div class="card col-md-3" ><img class="card-img-top" src="' + reviewedimage + '" alt="Card image cap">\
+      \
+                        <div class="card-body"><i class="far fa-comments fa-lg" style="float:left;cursor:pointer;margin-top:25px" data-toggle="modal" data-target="#editReviewModal" item="' + count +'" onClick="editReview(this)"></i>\
+                        \
+                        </li> <div class="card-body" ><i class="fa fa-trash" style="float:right;cursor:pointer; margin-top:5px;margin-left:10px" data-toggle="modal" item="' + count + '" onClick="deleteReview(this)"></i>\
+                        \
+    <h5 style="padding-left:30px;cursor:pointer" data-toggle="modal" data-target="#ReviewModal" class="card-title" item="' + count +'" onClick="showRestaurantPost(this)">' + ReviewTitle + '"</h5><div style="text-align:left;">Comments: "' + ReviewComment + "</div></div>\
+    " +DatePost+ "<p></p><div>By User: " + ReviewByUserName+  "</div></div>";
 
     table.insertAdjacentHTML("beforeend", cell);
     Review_Count++;

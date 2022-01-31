@@ -62,7 +62,7 @@ function displayRestaurant() {
 function showRestaurantdetails(element) {
   var item = element.getAttribute("item");
   currentIndex = item;
-  document.getElementById("Title").textContent = Restaurant_array[item].title;
+  document.getElementById("Title").textContent = Restaurant_array[item].RestaurantTitle;
   document.getElementById("RestaurantImage").src =
     Restaurant_array[item].RestaurantImage;
   document.getElementById("EthnicRestaurant").textContent =

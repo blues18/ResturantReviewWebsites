@@ -1,0 +1,110 @@
+.container1{
+    background: -webkit-linear-gradient(left, #0293bf, #baf5ff);
+    border-radius: 20px;
+    width: 1200px;
+    height: 850px;
+    margin-left: 10%;
+}
+
+input,select{
+    margin-left: 10%;
+    margin-top: 10%;
+    background: rgb(145, 145, 145);
+    border-radius: 5px;
+    padding: 15px;
+    text-align: left;
+    border:10px;
+    border-color: rgb(252, 252, 252);
+}
+
+::placeholder{
+    font-size: 16px;
+    color: honeydew;
+}
+
+.form-left{
+    width: 100px ;
+    height: 50px;
+    text-align: left;
+    display: flex;
+}
+
+.container2{
+    margin-top: 20%;
+    border-radius: 20px;
+    padding-right: 75px;
+    height: 750px;
+    background: -webkit-linear-gradient(bottom, #555555, #000000);
+    margin-left: 40px;
+   
+}
+
+.container3{
+    margin-top: 20px;
+    background: grey;
+    margin-left: 80px;
+    padding-right: 400px;
+    padding-bottom: 300px;
+    margin-bottom: 20%;
+    border-radius: 20px;
+    background: -webkit-linear-gradient(top, #555555, #000000);
+}
+
+.container4{
+    position:relative;
+    padding-right: 100px;
+    padding-bottom: 300px;
+    background:grey;
+    border-radius: 10px;
+    top: 380px;
+    right: 600px;
+    background: -webkit-linear-gradient(right, #555555, #000000);
+
+}
+
+
+img{
+    border-radius: 80px;
+    background: lightblue;
+    padding: 125px;
+    margin-top: 20px;
+    margin-left: 60px;
+
+}
+
+.posistioning{
+    position: relative;
+    bottom: 160px;
+    left: 300px;
+}
+
+.userprofileButtons{
+    position: relative;
+    top: 750px;
+    left: 700px;   
+}
+
+button{
+    background: grey;
+    padding: 10px;
+    border-radius: 60px;
+    border:20px;
+    font-size: 16px;
+    margin-right: 40px;
+    margin-left: 20px;
+    background: -webkit-linear-gradient(right, #79fcb4, #64d8dc);
+    cursor: pointer;
+    transition: all 0.4s ease 0s;
+}
+button:hover{
+    background: -webkit-linear-gradient(right, #b4bbb7, #b6c0c0);
+}
+
+input:hover{
+    background-color: rgb(90, 88, 88);
+}
+
+.Description{
+    width: 500px;
+    height: 200px;
+}

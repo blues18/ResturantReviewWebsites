@@ -1,9 +1,10 @@
+<link rel="stylesheet" href="CSS/ReviewDetails.css">
 <div class="modal fade" id="ReviewModal" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header bg-dark text-center">
                 <h3 class="modal-title text-light" id="reviewsTitle">Title</h3>
-                <button type="button" class="close bg-light" data-dismiss="modal">
+                <button type="button" class="close" data-dismiss="modal">
                     <span>&times;</span>
                 </button>
             </div>
@@ -27,25 +28,18 @@
                                 <td id="ratingPrice"></td>
                             </tr>
                             <tr>
-                                <td colspan="2"><button type="button" class="btn btn-warning" id="reviewRestaurantHyperlink" onClick="buyTicket()">Hyperlink</button></td>
+                                <td><span class="badge badge-pill badge-dark font-weight-bold">RatingFood</span></td>
+                                <td id="ratingFood"></td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge badge-pill badge-dark font-weight-bold">RatingService</span></td>
+                                <td id="ratingService"></td>
                             </tr>
                         </table>
                     </div>
                 </div>
-                <div class="col-xs-12 px-3"><span class="badge badge-pill badge-dark font-weight-bold float-left">RatingFood </span>
-                    <p id="ratingFood"></p>
-                </div>
-                <div class="col-xs-12 px-3"><span class="badge badge-pill badge-dark font-weight-bold float-left">RatingService </span>
-                    <p id="ratingService"></p>
-                </div>
-                <div class="col-xs-12 px-3"><span class="badge badge-pill badge-danger font-weight-bold float-left">reviedComment </span>
+                <div class="col-xs-12 px-3"><span class="Span">Reviwed Comments </span>
                     <p id="reviewComment"></p>
-                </div>
-                <div class="col-xs-12 px-3"><span class="badge badge-pill badge-danger font-weight-bold float-left">ReviewByUserName </span>
-                    <p id="reviewByUserName"></p>
-                </div>
-                <div class="col-xs-12 px-3"><span class="badge badge-pill badge-danger font-weight-bold float-left">DatePost </span>
-                    <p id="datePost"></p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary bg-dark" data-dismiss="modal">Close</button>
