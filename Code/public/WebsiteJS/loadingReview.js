@@ -65,8 +65,6 @@ function showRestaurantPost(element) {
     Reviewed_array[item].RatingService;
   document.getElementById("reviewComment").textContent =
     Reviewed_array[item].ReviewComment;
-  document.getElementById("reviewRestaurantHyperlink").src =
-    Reviewed_array[item].ReviewRestuarntHyperLink;
   document.getElementById("reviewByUserName").textContent =
     Reviewed_array[item].ReviewByUserName;
   document.getElementById("datePost").textContent =
@@ -90,8 +88,6 @@ function editReview(element) {
     Reviewed_array[item].Ratings;
   document.getElementById("editRatingPrice").value =
     Reviewed_array[item].RatingPrice;
-  document.getElementById("editReviewRestaurantHyperlink").value =
-    Reviewed_array[item].ReviewRestuarntHyperLink;
   document.getElementById("editRatingFood").value =
     Reviewed_array[item].RatingFood;
   document.getElementById("editRatingService").value =

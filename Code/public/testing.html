@@ -132,7 +132,7 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header bg-dark text-center">
-                <h3 class="modal-title text-light" >Write areview</h3>
+                <h3 class="modal-title text-light" id="editreviewsTitle">Title</h3>
                 <button type="button" class="close" data-dismiss="modal">
                     <span>&times;</span>
                 </button>
@@ -142,13 +142,8 @@
                 <form id="commentForm">
                     <div class="row" text-center id="editcommentBody">
 
-                        <div class="uploadimage">
-                            <div class="col-xs-2">
-                                <img style="width:200px; height:200px;position: relative; left: 50px;"  id="target"/>
-                                <input id ="myinputreview" style="margin-top: 10px;" class="form-control" type="file" onchange="encode2();"/>
-                                <label for ="myinput2">Picture</label>
-                            </div>
-                        </div>
+                        <label for="restaurantID1">RestaurantID</label>
+                        <input type="text" disabled id="editReviewResturantsID" class="form-control" required>
 
                         <div class="right-side">           
                             <label for="rating">Overallratings</label>
@@ -209,11 +204,6 @@
                                     <option value="7">Ichiban</option>
                                 </select> 
                             </div>
-                        
-                            <div class="col-xs-2">
-                                <label for="userID"> ReviewedUserID</label>
-                                <input type="text" id="editReviewUserID" class="form-control" required>
-                            </div> 
 
                             <div class="col-xs-3">
                                 <label for="title">ReviewTitle</label>

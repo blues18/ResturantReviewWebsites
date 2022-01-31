@@ -22,9 +22,6 @@ function updateReview() {
     Reviewed_array[currentIndex].RatingPrice =
       document.getElementById("editRatingPrice").value;
 
-    Reviewed_array[currentIndex].ReviewRestuarntHyperLink =
-      document.getElementById("editReviewRestaurantHyperlink").value;
-
     Reviewed_array[currentIndex].RatingFood =
       document.getElementById("editRatingFood").value;
 

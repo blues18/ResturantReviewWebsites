@@ -1,80 +1,128 @@
+
+
+<link rel="stylesheet" href="CSS/Review-Design.css">
 <div class="modal fade" id="editReviewModal" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header bg-dark text-center">
                 <h3 class="modal-title text-light" id="editreviewsTitle">Title</h3>
-                <button type="button" class="close bg-light" data-dismiss="modal">
+                <button type="button" class="close" data-dismiss="modal">
                     <span>&times;</span>
                 </button>
             </div>
             <div class="modal-body px-5">
+                <!-- All input to be sent to server, and buttons must be within the 'form' tag -->
                 <form id="commentForm">
                     <div class="row" text-center id="editcommentBody">
 
                         <label for="restaurantID1">RestaurantID</label>
                         <input type="text" disabled id="editReviewResturantsID" class="form-control" required>
 
-                        <label for="userID1">ReviewedUserID</label>
-                        <input type="text" disabled id="editReviewUserID" class="form-control" >
+                        <label for="userID"> ReviewedUserID</label>
+                        <input type="text" id="editReviewUserID" class="form-control" required>
 
-                        <label for="title1">ReviewTitle</label>
-                        <input type="text" id="editReviewTitle" class="form-control" required>
+                        <div class="uploadimage">
+                            <div class="col-xs-2">
+                                <img style="width:200px; height:200px;position: relative; left: 50px;"  id="target"/>
+                                <input id ="myinputreview" style="margin-top: 10px;" class="form-control" type="file" onchange="encode2();"/>
+                                <label for ="myinput2">Picture</label>
+                            </div>
+                        </div>
 
-                        <label for="username1">ReviewByUserName</label>
-                        <input type="text" id="editReviewByUserName" class="form-control" disabled>
+                        <div class="right-side" style="position: relative;top: 20px;">           
+                            <label for="rating">Overallratings</label>
+                            <select type="text" id="editOverallratings" class="form-control">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+        
 
-                        <label for="RestaurantName1">ReviewRestaurantName</label>
-                        <input type="text" id="editReviewRestaurantName" class="form-control" >
+                        <div class="col-xs-2">
+                            <label for="price">RatingPrice</label>
+                            <select type="text" id="editRatingPrice" class="form-control">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
 
-                        <label for="rating1">Overallratings</label>
-                        <select type="text" id="editOverallratings" class="form-control" >
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>
+                        <div class="col-xs-2">
+                            <label for="rateOnfood">RatingFood</label>
+                            <select type="text" id="editRatingFood" class="form-control" >
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
 
-                        <label for="price1">RatingPrice</label>
-                        <select type="text" id="editRatingPrice" class="form-control" >
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>
+                        <div class="col-xs-2">
+                            <label for="rateOnservice">RatingService</label>
+                            <select type="text" id="editRatingService" class="form-control" >\
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
+                     </div>
 
-                        <label for="rateOnfood1">RatingFood</label>
-                        <select type="text" id="editRatingFood" class="form-control" >
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>
 
-                        <label for="rateOnservice1">RatingService</label>
-                        <select type="text" id="editRatingService" class="form-control" >
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>
+                        <div class="left-side">
+                            <div class="col-xs-3">
+                                <label for="restaurantID"> RestaurantID</label>
+                                <select id="editReviewRestaurantsID" name="id" class="form-control" required>
+                                    <option value="1">SWENSEN</option>
+                                    <option value="2">Soup Restaurant</option>
+                                    <option value="3">Ichiban</option>
+                                    <option value="4">Alstons</option>
+                                    <option value="5">BurgerKing</option>
+                                    <option value="6">Jonior</option>
+                                    <option value="7">Ichiban</option>
+                                </select> 
+                            </div>
 
-                        <label for="Hyperlink1">ReviewRestaurantHyperlink</label>
-                        <input type="text" id="editReviewRestaurantHyperlink" class="form-control" >
+                            <div class="col-xs-3">
+                                <label for="title">ReviewTitle</label>
+                                <input type="text" id="editReviewTitle" class="form-control" required> 
+                            </div>
 
-                        <label for="comments1">ReviewComment</label>
-                        <input type="text" id="editReviewComment" class="form-control" >
-              
+                            <div class="leftside-2" style="position: relative; top: -170px;">
+                                <div class="col-xs-4"> 
+                                    <label for="username">ReviewByUserName</label>
+                                    <input type="text" id="editReviewByUserName" class="form-control">
+                                </div>
+
+                            
+                                <div class="col-xs-3">  
+                                    <label for="RestaurantName">ReviewRestaurantName</label>
+                                    <input type="text" id="editReviewRestaurantName" class="form-control" > 
+                                </div>
+                            </div>
+
+                       
+                            <div class="Comments">
+                                <label for="comments">ReviewComment</label>
+                                <P></P>
+                                <textarea rows="6" cols="40" name="text" id="editReviewComment" class="textBOX" placeholder="Enter text Here...."></textarea>
+                            </div>
+                        </div>
                     </div>
+
                     <div class="modal-footer">
-  <button type="button" class="btn btn-primary" data-dismiss="modal" id="submitComment" onClick="updateReview()">Submit</button>
-                        <button type="button" class="btn btn-secondary bg-dark" data-dismiss="modal">Close</button>
+  <button type="button" class="btn btn-primary" data-dismiss="modal" id="submitComment" onClick="updateReview();">Submit</button>
+                        <button type="button" class="btn btn-secondary bg-dark" data-dismiss="modal" onclick="closed";>Close</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 </div>
+
