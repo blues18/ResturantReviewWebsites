@@ -19,7 +19,6 @@ function addReview(){
     var ReviewRestaurantName = document.getElementById("ReviewRestaurantName").value;
     var Ratings = document.getElementById("Overallratings").value;
     var RatingPrice = document.getElementById("RatingPrice").value;
-    var ReviewRestaurantHyperlink = document.getElementById("ReviewRestaurantHyperlink").value;
     var RatingFood = document.getElementById("RatingFood").value;
     var RatingService = document.getElementById("RatingService").value;
     var ReviewComment = document.getElementById("ReviewComment").value;
@@ -27,7 +26,7 @@ function addReview(){
     var DatePost = null;
   
     var payload={ReviewResturantsID:ReviewResturantsID,ReviewUserID:ReviewUserID,ReviewTitle:ReviewTitle,ReviewPhoto:ReviewPhoto,ReviewRestaurantName:ReviewRestaurantName,
-        Ratings:Ratings,RatingPrice:RatingPrice,ReviewRestaurantName:ReviewRestaurantName,ReviewRestaurantHyperlink:ReviewRestaurantHyperlink,
+        Ratings:Ratings,RatingPrice:RatingPrice,ReviewRestaurantName:ReviewRestaurantName,
         RatingFood:RatingFood,RatingService,RatingService,ReviewComment,ReviewByUserName,DatePost}
 
   postReview.send(JSON.stringify(payload)); 

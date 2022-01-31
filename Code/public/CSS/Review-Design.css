@@ -1,0 +1,50 @@
+.modalthis{
+    width: 45%;
+    height: 30%;
+    position: relative;
+    left: 550px;
+    padding-top: 50px;
+}
+
+.right-side{
+    position: relative;
+    left: 210px;
+    top:-10px;
+
+
+}
+
+.uploadimage{
+    position: relative;
+    top: 30px;
+}
+
+.left-side{
+    position: relative;
+    top: 40px;
+    
+}
+
+.leftside-2{
+    position: relative;
+    left: 400px;
+    top: -247px;
+}
+
+.Comments{
+    position: relative;
+    top: -140px;
+}
+
+.textBOX{
+    
+}
+
+select,input,textarea{
+    background: -webkit-linear-gradient(right, #04c4ff, #47d6d6);
+    border-radius: 10px;
+    border: 40px;
+    border-color: black;
+    
+}
+
