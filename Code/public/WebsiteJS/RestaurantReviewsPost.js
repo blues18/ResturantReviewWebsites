@@ -26,8 +26,8 @@ function getReview(element) {
           images = Reviewed_array[item].ReviewPhoto;
           star = "";
           var html = '<div class="text-center" style="width:100%;">                                                           \
-                          <div class="card">                                                                                  \
-                              <div class="card-body">\
+                          <div class="card"; style="border-color:black"; "border:10px;">                                                                                  \
+                              <div class="card-body" style="background: -webkit-linear-gradient(right, #555555, #000000);">\
                                 <div class="card col-md-3" ><img class="card-img-top" src="'+ images +'alt="Card image cap"> \
                                     <p class="card-text" id="rating' + i + '">' + Reviewed_array[i].ReviewTitle + "</p>               \
                                   <small>by " + Reviewed_array[i].ReviewByUserName + " @ " + Reviewed_array[i].DatePost + "</small>   \

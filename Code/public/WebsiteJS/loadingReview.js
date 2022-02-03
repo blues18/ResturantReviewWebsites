@@ -52,7 +52,8 @@ function showRestaurantPost(element) {
   ReviewedCurrent_index = item;
   document.getElementById("reviewsTitle").textContent =
     Reviewed_array[item].ReviewTitle;
-  document.getElementById("reviewimage").src = Reviewed_array[item].ReviewPhoto;
+  document.getElementById("reviewimage").src = 
+    Reviewed_array[item].ReviewPhoto;
   document.getElementById("reviewRestaurantName").textContent =
     Reviewed_array[item].ReviewRestaurantName;
   document.getElementById("overallratings").textContent =
@@ -69,6 +70,7 @@ function showRestaurantPost(element) {
     Reviewed_array[item].ReviewByUserName;
   document.getElementById("datePost").textContent =
     Reviewed_array[item].DatePost;
+
 }
 
 function editReview(element) {

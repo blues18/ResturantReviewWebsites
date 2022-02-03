@@ -1,7 +1,28 @@
-.registerBOX{
-    width: 800px;
-    height: 400px;
+.Rightregister{
     position: relative;
-    left: 25%;
+    left: 390px;
+    top: -460px;
 }
+
+.modalbox{
+    width: 800px;
+    height: 200px;
+    position: relative;
+    left: 30%;
+    top: 80px;
+}
+
+.Urlimages{
+    width: 350px;
+    height: 470px;
+    background: black;
+    border-radius: 20px;
+    position: relative;
+    top: 10px;
+}
+
+.Urlimages{
+    background-image: url(https://img.freepik.com/free-vector/restaurant-mural-wallpaper_23-2148692632.jpg?size=626&ext=jpg&ga=GA1.2.1849128876.1637452800);
+}
+
 

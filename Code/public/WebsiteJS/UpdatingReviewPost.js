@@ -30,6 +30,9 @@ function updateReview() {
 
     Reviewed_array[currentIndex].ReviewComment =
       document.getElementById("editReviewComment").value;
+
+    Reviewed_array[currentIndex].ReviewPhoto = 
+      document.getElementById("target").value;
     
     updatingpost.onload = function () {
 
