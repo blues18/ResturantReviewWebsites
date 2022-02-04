@@ -5,14 +5,12 @@ function addReview(){
     postReview.setRequestHeader("Content-Type", "application/json");
     postReview.onload = function() {
   
-          console.log("new comment sent");
+          //console.log("new comment sent");
           $('#successfulModal').modal('show');
           location.reload(" ");    
     };
 
    
-    ReviewByUserName = sessionStorage.getItem("username");
-    
     var ReviewResturantsID = document.getElementById("ReviewRestaurantsID").value;
     var ReviewUserID = document.getElementById("ReviewUserID").value;
     var ReviewTitle = document.getElementById("ReviewTitle").value;
@@ -24,6 +22,8 @@ function addReview(){
     var ReviewComment = document.getElementById("ReviewComment").value;
     var ReviewByUserName = document.getElementById("ReviewByUserName").value;
     var DatePost = null;
+  
+    //document.getElementById("ReviewUserID").innerHTML = localStorage.getItem("userid");
   
     var payload={ReviewResturantsID:ReviewResturantsID,ReviewUserID:ReviewUserID,ReviewTitle:ReviewTitle,ReviewPhoto:ReviewPhoto,ReviewRestaurantName:ReviewRestaurantName,
         Ratings:Ratings,RatingPrice:RatingPrice,ReviewRestaurantName:ReviewRestaurantName,
@@ -44,6 +44,9 @@ function addReview(){
           filereader.readAsDataURL(imageFile);
       }
   }
+
+  
+
 
   
   

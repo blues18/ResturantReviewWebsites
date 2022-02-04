@@ -1,13 +1,13 @@
 function registerMe(){
 
     var registerUser= new XMLHttpRequest();
-
     registerUser.open("POST","http://127.0.0.1:8080/AddUser",true);
     registerUser.setRequestHeader("Content-Type","application/json");
     registerUser.onload=function (){
         
         $('#successfulModal').modal('show');
         $('#registerModal').modal('hide');
+
     }
 
     var UserName = document.getElementById("username").value;

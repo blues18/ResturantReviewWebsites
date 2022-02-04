@@ -51,7 +51,6 @@ function displaythisRestaurant() {
     document.getElementById("parent").textContent = "";
   }
 }
-
 var input = document.getElementById("mysearch")
 input.addEventListener("keyup",function(entered){
   if(entered.keyCode===13){
@@ -59,3 +58,5 @@ input.addEventListener("keyup",function(entered){
     document.getElementById("submit").click();
   }
 });
+
+

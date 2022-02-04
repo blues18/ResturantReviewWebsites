@@ -34,7 +34,8 @@ $(document).ready(function (){
         document.getElementById('PhoneNumber').value=PhoneNumber;
         document.getElementById('Email').value=Email;                        
         document.getElementById('target').src=UserProfilePictures;
-        document.getElementById('UserDescription').value=UserDescription;   
+        document.getElementById('UserDescription').value=UserDescription;
+        document.getElementById('ReviewByUserName').value=UserName;   
     
     }
     var payload={Token:Token};

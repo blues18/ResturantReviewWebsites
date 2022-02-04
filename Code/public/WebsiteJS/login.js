@@ -25,7 +25,7 @@ function loginMe(){
         
             $('#CreateReviewMeun').show()
             sessionStorage.setItem("token", Usertoken.result);
-            //sessionStorage.setItem("username",Usertoken.username);
+            sessionStorage.setItem("username",Usertoken.username);
 
             UserNameDisplay=Usertoken.username;
             document.getElementById('displayUser').innerHTML = UserNameDisplay;

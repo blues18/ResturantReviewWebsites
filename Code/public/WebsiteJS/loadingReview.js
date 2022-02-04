@@ -30,19 +30,35 @@ function displayReviewPost() {
     var ReviewByUserName = Reviewed_array[count].ReviewByUserName;
     var numberofID = Reviewed_array[count].ReviewID;
     var cell =
-      '<div class="card col-md-3" ><img class="card-img-top" src="' + reviewedimage + '" alt="Card image cap">\
+      '<div class="card col-md-3" ><img class="card-img-top" src="' +
+      reviewedimage +
+      '" alt="Card image cap">\
       \
-                        <div class="card-body"><i class="far fa-comments fa-lg" style="float:left;cursor:pointer;margin-top:25px" data-toggle="modal" data-target="#editReviewModal" item="' + count +'" onClick="editReview(this)"></i>\
+                        <div class="card-body"><i class="far fa-comments fa-lg" style="float:left;cursor:pointer;margin-top:25px" data-toggle="modal" data-target="#editReviewModal" item="' +
+      count +
+      '" onClick="editReview(this)"></i>\
                         \
-                        </li> <div class="card-body" ><i class="fa fa-trash" style="float:right;cursor:pointer; margin-top:5px;margin-left:10px" data-toggle="modal" item="' + count + '" onClick="deleteReview(this)"></i>\
+                        </li> <div class="card-body" ><i class="fa fa-trash" style="float:right;cursor:pointer; margin-top:5px;margin-left:10px" data-toggle="modal" item="' +
+      count +
+      '" onClick="deleteReview(this)"></i>\
                         \
-    <h5 style="padding-left:30px;cursor:pointer" data-toggle="modal" data-target="#ReviewModal" class="card-title" item="' + count +'" onClick="showRestaurantPost(this)">' + ReviewTitle + '"</h5><div style="text-align:left;">Comments: "' + ReviewComment + "</div></div>\
-    " +DatePost+ "<p></p><div>By User: " + ReviewByUserName+  "</div></div>";
+    <h5 style="padding-left:30px;cursor:pointer" data-toggle="modal" data-target="#ReviewModal" class="card-title" item="' +
+      count +
+      '" onClick="showRestaurantPost(this)">' +
+      ReviewTitle +
+      '"</h5><div style="text-align:left;">Comments: "' +
+      ReviewComment +
+      "</div></div>\
+    " +
+      DatePost +
+      "<p></p><div>By User: " +
+      ReviewByUserName +
+      "</div></div>";
 
     table.insertAdjacentHTML("beforeend", cell);
     Review_Count++;
 
-    message = Review_Count + " ReviewsPost ";
+    message = Review_Count + " Reviews Post ";
     document.getElementById("summary").textContent = message;
     document.getElementById("parent").textContent = "";
   }
@@ -52,8 +68,7 @@ function showRestaurantPost(element) {
   ReviewedCurrent_index = item;
   document.getElementById("reviewsTitle").textContent =
     Reviewed_array[item].ReviewTitle;
-  document.getElementById("reviewimage").src = 
-    Reviewed_array[item].ReviewPhoto;
+  document.getElementById("reviewimage").src = Reviewed_array[item].ReviewPhoto;
   document.getElementById("reviewRestaurantName").textContent =
     Reviewed_array[item].ReviewRestaurantName;
   document.getElementById("overallratings").textContent =
@@ -70,7 +85,6 @@ function showRestaurantPost(element) {
     Reviewed_array[item].ReviewByUserName;
   document.getElementById("datePost").textContent =
     Reviewed_array[item].DatePost;
-
 }
 
 function editReview(element) {
@@ -98,6 +112,7 @@ function editReview(element) {
     Reviewed_array[item].ReviewComment;
   document.getElementById("editReviewByUserName").value =
     Reviewed_array[item].ReviewByUserName;
+  document.getElementById("showtarget").src = Reviewed_array[item].ReviewPhoto;
 }
 
 var Usertoken = sessionStorage.getItem("token");
@@ -107,17 +122,26 @@ if (Usertoken != null) {
   $("#LogOutMeun").show();
   $("#usereditMeun").show();
   $("#CreateReviewMeun").show();
-  var Profile = new XMLHttpRequest();
-  Profile.open("POST", "http://127.0.0.1:8080/imageUpload", true); //get data
-  Profile.setRequestHeader("Content-Type", "application/json");
-  Profile.onload = function (){
+  var ProfileReview = new XMLHttpRequest();
+  ProfileReview.open("POST", "http://127.0.0.1:8080/imageUpload", true); //get data
+  ProfileReview.setRequestHeader("Content-Type", "application/json");
+  ProfileReview.onload = function () {
+    //var display = JSON.parse(ProfileReview.responseText);
 
+    console.log(ProfileReview.responseText);
 
-    console.log(Profile.responseText);
+    //UserNameReviewPost = display[0].UserName;
+    //UserIDReviewPost = display[0].UserID;
+    //window.sessionStorage.setItem("userid", JSON.stringify(UserIDReviewPost));
+    //window.sessionStorage.setItem("username", JSON.stringify(UserNameReviewPost));
+    
+
+    //console.log(UserNameReviewPost,UserIDReviewPost);
+
   };
- 
-  var payload={Token:Token};
-  Profile.send(JSON.stringify(payload));
+
+  var payload = { Token: Token };
+  ProfileReview.send(JSON.stringify(payload));
 } else {
   $("#CreateReviewMeun").hide();
 }

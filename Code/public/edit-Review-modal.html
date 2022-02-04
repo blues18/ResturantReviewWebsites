@@ -12,7 +12,7 @@
             </div>
             <div class="modal-body px-5">
                 <!-- All input to be sent to server, and buttons must be within the 'form' tag -->
-                <form id="commentForm">
+                <form id="commentFormEdit">
                     <div class="row" text-center id="editcommentBody">
 
                         <label for="restaurantID1">RestaurantID</label>
@@ -23,53 +23,52 @@
 
                         <div class="uploadimage">
                             <div class="col-xs-2">
-                                <img style="width:200px; height:200px;position: relative; left: 50px;"  id="target"/>
-                                <input id ="myinputreview" style="margin-top: 10px;" class="form-control" type="file" onchange="encode2();"/>
-                                <label for ="myinput2">Picture</label>
+                                <img style="width:200px; height:200px;position: relative; left: 50px;"  id="showtarget"/>
+                                <label for ="myinput2" style="position: relative; top: 120px; right: 100px;">Picture</label>
                             </div>
                         </div>
 
                         <div class="right-side" style="position: relative;top: 20px;">           
                             <label for="rating">Overallratings</label>
                             <select type="text" id="editOverallratings" class="form-control">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
+                                <option value="Great">Great</option>
+                                <option value="Good">Good</option>
+                                <option value="Average">Average</option>
+                                <option value="Bad">Bad</option>
+                                <option value="VeryBad">VeryBad</option>
                             </select>
         
 
                         <div class="col-xs-2">
                             <label for="price">RatingPrice</label>
                             <select type="text" id="editRatingPrice" class="form-control">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
+                                <option value="Great">Great</option>
+                                <option value="Good">Good</option>
+                                <option value="Average">Average</option>
+                                <option value="Bad">Bad</option>
+                                <option value="VeryBad">VeryBad</option>
                             </select>
                         </div>
 
                         <div class="col-xs-2">
                             <label for="rateOnfood">RatingFood</label>
                             <select type="text" id="editRatingFood" class="form-control" >
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
+                                <option value="Great">Great</option>
+                                <option value="Good">Good</option>
+                                <option value="Average">Average</option>
+                                <option value="Bad">Bad</option>
+                                <option value="VeryBad">VeryBad</option>
                             </select>
                         </div>
 
                         <div class="col-xs-2">
                             <label for="rateOnservice">RatingService</label>
                             <select type="text" id="editRatingService" class="form-control" >\
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
+                                <option value="Great">Great</option>
+                                <option value="Good">Good</option>
+                                <option value="Average">Average</option>
+                                <option value="Bad">Bad</option>
+                                <option value="VeryBad">VeryBad</option>
                             </select>
                         </div>
                      </div>
@@ -84,8 +83,8 @@
                                     <option value="3">Ichiban</option>
                                     <option value="4">Alstons</option>
                                     <option value="5">BurgerKing</option>
-                                    <option value="6">Jonior</option>
-                                    <option value="7">Ichiban</option>
+                                    <option value="6">Canton paradise</option>
+                                    <option value="7">Superman Nasi lemak</option>
                                 </select> 
                             </div>
 

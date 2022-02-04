@@ -10,5 +10,7 @@ function logoutMe() {
     
     
     sessionStorage.removeItem("token");
-    sessionStorage.removeItem("username")    
+    sessionStorage.removeItem("username");  
+    localStorage.removeItem("userid"); 
+    localStorage.removeItem("username"); 
 }
