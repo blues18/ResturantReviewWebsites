@@ -11,12 +11,36 @@ function getRestaurantDetails() {
     console.log(Restaurant_array); // output to console
     //call the function so as to display all movies tiles for "Now Showing"
     displayRestaurant(category);
-    
+
   };
 
   //This command starts the calling of the movies web api
   request.send();
+
+  var Usertoken = sessionStorage.getItem("token");
+  console.log(Usertoken);
+  
+  if (Usertoken != null) {
+    $("#registerMenu").hide();
+    $("#LoginMeun").hide();
+    $("#LogOutMeun").show();
+    $("#usereditMeun").show();
+    $("#CreateReviewMeun").show();
+    var ProfileReview = new XMLHttpRequest();
+    ProfileReview.open("POST", "http://127.0.0.1:8080/imageUpload", true); //get data
+    ProfileReview.setRequestHeader("Content-Type", "application/json");
+    ProfileReview.onload = function () {
+      var display = JSON.parse(ProfileReview.responseText);
+
+      console.log(ProfileReview.responseText);
+      ImageProfile = display[0].UserProfilePictures;
+      document.getElementById("displayImage").src = ImageProfile;
+    };
+    var payload = { Token:Usertoken };
+    ProfileReview.send(JSON.stringify(payload));
+  }
 }
+
 function displayRestaurant() {
   var table = document.getElementById("RestaurantTable");
   var Restaurant_Count = 0;
@@ -79,15 +103,3 @@ function showRestaurantdetails(element) {
   document.getElementById("trailer2").src = Restaurant_array[item].video2;
 }
 
-function getRatinginAsc(){
-  var RatingsinAsc = new XMLHttpRequest();
-  RatingsinAsc.open("GET","http://127.0.0.1:8080/RestaurantRatingInASC",true);
-  RatingsinAsc.setRequestHeader("Content-Type","application/json");
-  RatingsinAsc.onload=function (){ 
-      var displayRatingAsc = JSON.parse(RatingsinAsc.responseText);
-      console.log(displayRatingAsc);
-      displayRestaurant()
-          
-  }
-  RatingsinAsc.send();
-}

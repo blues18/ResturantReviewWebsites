@@ -7,6 +7,7 @@ function loginMe(){
 
     LoginUser.onload=function (){
         
+     
         $('#LoginModal').modal('hide');
 
         var Usertoken = JSON.parse(LoginUser.responseText);
@@ -31,7 +32,7 @@ function loginMe(){
             document.getElementById('displayUser').innerHTML = UserNameDisplay;
             //document.getElementById('userdisplay').innerHTML = UserNameDisplay;
             document.getElementById('ReviewByUserName').innerHTML = UserNameDisplay;
-            //exports.Usertoken = Usertoken;
+
         }else{
              $('#loginFailed').modal('show');
         }
@@ -42,3 +43,6 @@ function loginMe(){
     var payload = {UserName:Username,PassWord:Password}//get this from Userprofile controller where we requested th body.username and password 
     LoginUser.send(JSON.stringify(payload));
 } 
+
+
+

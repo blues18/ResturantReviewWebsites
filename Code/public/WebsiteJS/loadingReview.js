@@ -1,4 +1,4 @@
-function getReviewDetails() {
+function getReviewDetails(){
   var request = new XMLHttpRequest();
   request.open("GET", AllReviewedURL, true);
   //This function will be called when data returns from the web api
@@ -13,6 +13,30 @@ function getReviewDetails() {
   };
   //This command starts the calling of the movies web api
   request.send();
+
+  var Usertoken = sessionStorage.getItem("token");
+  if (Usertoken != null) {
+    $("#registerMenu").hide();
+    $("#LoginMeun").hide();
+    $("#LogOutMeun").show();
+    $("#usereditMeun").show();
+    $("#CreateReviewMeun").show();
+    var ProfileReview = new XMLHttpRequest();
+    ProfileReview.open("POST", "http://127.0.0.1:8080/imageUpload", true); //get data
+    ProfileReview.setRequestHeader("Content-Type", "application/json");
+    ProfileReview.onload = function () {
+      var display = JSON.parse(ProfileReview.responseText);
+
+      console.log(ProfileReview.responseText);
+
+      ImageProfile = display[0].UserProfilePictures;
+      document.getElementById("displayImage").src = ImageProfile;
+    };
+    var payload = { Token: Token };
+    ProfileReview.send(JSON.stringify(payload));
+  } else {
+    $("#CreateReviewMeun").hide();
+  }
 }
 
 function displayReviewPost() {
@@ -113,35 +137,4 @@ function editReview(element) {
   document.getElementById("editReviewByUserName").value =
     Reviewed_array[item].ReviewByUserName;
   document.getElementById("showtarget").src = Reviewed_array[item].ReviewPhoto;
-}
-
-var Usertoken = sessionStorage.getItem("token");
-if (Usertoken != null) {
-  $("#registerMenu").hide();
-  $("#LoginMeun").hide();
-  $("#LogOutMeun").show();
-  $("#usereditMeun").show();
-  $("#CreateReviewMeun").show();
-  var ProfileReview = new XMLHttpRequest();
-  ProfileReview.open("POST", "http://127.0.0.1:8080/imageUpload", true); //get data
-  ProfileReview.setRequestHeader("Content-Type", "application/json");
-  ProfileReview.onload = function () {
-    //var display = JSON.parse(ProfileReview.responseText);
-
-    console.log(ProfileReview.responseText);
-
-    //UserNameReviewPost = display[0].UserName;
-    //UserIDReviewPost = display[0].UserID;
-    //window.sessionStorage.setItem("userid", JSON.stringify(UserIDReviewPost));
-    //window.sessionStorage.setItem("username", JSON.stringify(UserNameReviewPost));
-    
-
-    //console.log(UserNameReviewPost,UserIDReviewPost);
-
-  };
-
-  var payload = { Token: Token };
-  ProfileReview.send(JSON.stringify(payload));
-} else {
-  $("#CreateReviewMeun").hide();
 }

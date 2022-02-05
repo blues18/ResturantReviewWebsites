@@ -10,6 +10,7 @@ $(document).ready(function (){
         document.getElementById("LoginMeun").style.display="none";
         document.getElementById("LogOutMeun").style.display="block";
         document.getElementById("usereditMeun").style.display="block";
+        document.getElementById("displayImage").style.display="none";
         //document.getElementById("userdisplay").style.display="block";
         
         console.log(Profile.responseText);
@@ -35,9 +36,12 @@ $(document).ready(function (){
         document.getElementById('Email').value=Email;                        
         document.getElementById('target').src=UserProfilePictures;
         document.getElementById('UserDescription').value=UserDescription;
-        document.getElementById('ReviewByUserName').value=UserName;   
+        document.getElementById('ReviewByUserName').value=UserName;
+
+        document.getElementById('displayImage').src=UserProfilePictures;   
     
     }
     var payload={Token:Token};
     Profile.send(JSON.stringify(payload));
 })
+

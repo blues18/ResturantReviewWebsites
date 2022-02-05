@@ -6,8 +6,5 @@ class RestaurantSEARCH{
     getRestaurantTitle(){
         return this.RestaurantTitle;
     }
-    setRestaurantTitle(){
-        this.RestaurantTitle = RestaurantTitle;
-    }
 }
 module.exports = RestaurantSEARCH;

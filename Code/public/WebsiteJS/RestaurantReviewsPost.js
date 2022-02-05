@@ -26,11 +26,11 @@ function getReview(element) {
           images = Reviewed_array[item].ReviewPhoto;
           star = "";
           var html = '<div class="text-center" style="width:100%;">                                                           \
-                          <div class="card"; style="border-color:black"; "border:10px;">                                                                                  \
-                              <div class="card-body" style="background: -webkit-linear-gradient(right, #555555, #000000);">\
-                                <div class="card col-md-3" ><img class="card-img-top" src="'+ images +'alt="Card image cap" style = "width:200px"> \
-                                    <p class="card-text" id="rating' + i + '">' + Reviewed_array[i].ReviewTitle + "</p>               \
-                                  <small>by " + Reviewed_array[i].ReviewByUserName + " @ " + Reviewed_array[i].DatePost + "</small>   \
+                          <div class="card"; style="border-color:black"; "border:10px; font-size:20px; ">                                                                                  \
+                              <div class="card-body" style="background:-webkit-linear-gradient(right, #555555, #000000);">\
+                                <div class="card" style="background:grey; width:50%; height:50% " ><img class="card-img-top" style="position: relative; left:25%; background:grey; width:50%; height:50%;" src="'+ images +'alt="Card image cap"> \
+                                    <p class="card-text" id="rating' + i + '">' + Reviewed_array[i].ReviewTitle + "</p>" +"Rating:" + Reviewed_array[i].Ratings + "<P></P>                \
+                                  <div> by " + Reviewed_array[i].ReviewByUserName + "</div>" + '<p></p>' + "<small>" + Reviewed_array[i].DatePost + "</small>   \
                               </div>                                                                                          \
                           </div>                                                                                              \
                       </div>";
@@ -38,8 +38,8 @@ function getReview(element) {
 
         
           var star = "";
-          star += "<i class='far fa-trash-alt fa-2x edit' data-dismiss='modal' item='" + i + "' onClick='deleteReview(this)' ></i>";
-          star += "<i class='far fa-edit fa-2x edit' data-toggle='modal' data-target='#ReviewModal' data-dismiss='modal' item='" + i + "' onClick='editReview(this)' ></i>";
+          star += "<i class='far fa-trash-alt fa-2x edit' data-dismiss='modal' style='position:relative; left:30%; ' item='" + i + "' onClick='deleteReview(this)' ></i>";
+          star += "<i class='far fa-edit fa-2x edit' data-toggle='modal' data-target='#ReviewModal' data-dismiss='modal' style='position: relative; right:30%; top:-30px' item='" + i + "' onClick='editReview(this)' ></i>";
           document.getElementById("rating" + i).insertAdjacentHTML('beforebegin', star + "<br/>");
       }
   }

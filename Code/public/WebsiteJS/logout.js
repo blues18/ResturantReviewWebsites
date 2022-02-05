@@ -7,7 +7,9 @@ function logoutMe() {
     $('#CreateReviewMeun').hide();
     $('#userdisplay').hide();
     $('#submitComment').hide();
-    
+
+    var object = document.getElementById("displayImage");
+    object.remove();
     
     sessionStorage.removeItem("token");
     sessionStorage.removeItem("username");  
