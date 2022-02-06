@@ -14,12 +14,6 @@ class UserProfileDB{
         db.query(sql,[Userprofile.getUserName() ,Userprofile.getFirstName(), Userprofile.getLastName(), Userprofile.getGender()
             , Userprofile.getAddress(), Userprofile.getPhoneNumber(), Userprofile.getEmail(),Userprofile.getPassWord(), null,null,null], callback);
     }
-    //ERROR DO NOT USED THIS!
-    UpdateUserProfile(UpdateUser,callback){
-        var sql = "UPDATE userprofiledata SET FirstName = ?, LastName = ?, Gender = ?, Address = ?, PhoneNumber = ?, Email = ?, PassWord = ?, UserProfilePictures = ?, UserDescription = ?,UserWallpaper = ?, Token= ? WHERE UserName = ?";
-        return db.query(sql,[UpdateUser.getFirstName(), UpdateUser.getLastName(), UpdateUser.getGender()
-            , UpdateUser.getAddress(), UpdateUser.getPhoneNumber(), UpdateUser.getEmail(), UpdateUser.getPassWord(), UpdateUser. getUserProfilePictures(),UpdateUser.getUserDescription(),UpdateUser.getUserWallpaper(),UpdateUser.getToken(), UpdateUser.getUserID()], callback);
-    }
     DeleteUserProfile(DeleteUser,callback){
         var sql = "DELETE from userprofiledata WHERE UserID = ?";
         return db.query(sql,[DeleteUser],callback);
@@ -42,11 +36,6 @@ class UserProfileDB{
         var sql = "UPDATE userprofiledata SET UserProfilePictures = ?,FirstName = ?,LastName = ?,PassWord = ?, Gender = ?, Address = ?, PhoneNumber = ?, Email = ?,UserDescription = ? WHERE UserName = ?";
         return db.query(sql,[UserProfilePictures,FirstName,LastName,PassWord,Gender,Address,PhoneNumber,Email,UserDescription, UserName],callback);
     }
-    getspecific(User2,callback){
-        var sql = "SELECT * FROM userprofiledata WHERE UserID = ?";
-        return db.query(sql,[User2],callback);
-    }
-
 
     ////////////////////////////////////   
 }   

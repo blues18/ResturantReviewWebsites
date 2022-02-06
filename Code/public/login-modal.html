@@ -15,12 +15,23 @@
 					</div>
 					<div class="form-group">
 						<label for="exampleInputPassword1">Password</label>
-						<input type="passwordlogin" class="form-control" id="passwordlogin" class="login" placeholder="Password">
+						<input type="password" value="" class="form-control" id="passwordlogin" class="login" placeholder="Password"  >
+						<input type="checkbox" onclick="showPassword()">show Password
 						<P></P>
-						<button1 onclick="loginMe();" type="button" class="btnlogin">Enter</button1>					
+						<button1 onclick="loginMe();" type="button" class="btnlogin">Enter</button1>
+						<script>
+						function showPassword() {
+							var x = document.getElementById("passwordlogin");
+							  if (x.type === "password") {
+								  x.type = "text";
+								}else {
+									x.type ="password";
+							  }
+							}
+						</script>					
 					</div>
 				</form>
 			</div>
 		</div>
 	</div>
-</div>
+</div>               

@@ -1,7 +1,7 @@
 function addReview(){
-    var postReview = new XMLHttpRequest(); // new HttpRequest instance to send comment
+    var postReview = new XMLHttpRequest(); // Creating a new review
   
-    postReview.open("POST","http://127.0.0.1:8080/ADDReviewed", true); //Use the HTTP POST method to send data to server
+    postReview.open("POST","http://127.0.0.1:8080/ADDReviewed", true);
     postReview.setRequestHeader("Content-Type", "application/json");
     postReview.onload = function() {
   
@@ -32,7 +32,7 @@ function addReview(){
   postReview.send(JSON.stringify(payload)); 
   }
 
-  function encode2(){
+  function encode2(){                                                           //100mb uploading Reviewpictures
       var selectedfile = document.getElementById("myinputreview").files;
       if (selectedfile.length > 0) {
           var imageFile = selectedfile[0];

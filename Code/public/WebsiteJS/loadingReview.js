@@ -1,20 +1,18 @@
-function getReviewDetails(){
+function getReviewDetails(){                              //getting details
   var request = new XMLHttpRequest();
   request.open("GET", AllReviewedURL, true);
-  //This function will be called when data returns from the web api
+  
   request.onload = function () {
-    //get all the movies records into our review array
+ 
     Reviewed_array = JSON.parse(request.responseText);
-    //Fetch the comments as well
-    //fetchComments();
+   
     console.log(Reviewed_array); // output to console
-    //call the function so as to display all movies tiles for "Now Showing"
+ 
     displayReviewPost();
-  };
-  //This command starts the calling of the movies web api
+  }; 
   request.send();
 
-  var Usertoken = sessionStorage.getItem("token");
+  var Usertoken = sessionStorage.getItem("token");        //if token is correct then diaplay
   if (Usertoken != null) {
     $("#registerMenu").hide();
     $("#LoginMeun").hide();
@@ -31,15 +29,18 @@ function getReviewDetails(){
 
       ImageProfile = display[0].UserProfilePictures;
       document.getElementById("displayImage").src = ImageProfile;
+
+
     };
     var payload = { Token: Token };
     ProfileReview.send(JSON.stringify(payload));
   } else {
     $("#CreateReviewMeun").hide();
   }
+  
 }
 
-function displayReviewPost() {
+function displayReviewPost() {                            //getting all the reviewDetails
   var table = document.getElementById("ReviewsTable");
   var Review_Count = 0;
   var message = "";
@@ -52,7 +53,7 @@ function displayReviewPost() {
     var ReviewComment = Reviewed_array[count].ReviewComment;
     var DatePost = Reviewed_array[count].DatePost;
     var ReviewByUserName = Reviewed_array[count].ReviewByUserName;
-    var numberofID = Reviewed_array[count].ReviewID;
+    //var numberofID = Reviewed_array[count].ReviewID;
     var cell =
       '<div class="card col-md-3" ><img class="card-img-top" src="' +
       reviewedimage +
@@ -87,7 +88,7 @@ function displayReviewPost() {
     document.getElementById("parent").textContent = "";
   }
 }
-function showRestaurantPost(element) {
+function showRestaurantPost(element) {                                            //When clicking a review post it shows more details inside 
   var item = element.getAttribute("item");
   ReviewedCurrent_index = item;
   document.getElementById("reviewsTitle").textContent =
@@ -111,7 +112,7 @@ function showRestaurantPost(element) {
     Reviewed_array[item].DatePost;
 }
 
-function editReview(element) {
+function editReview(element) {                                  //edit reviewpost when clciking on the reveiw post item/element
   var item = element.getAttribute("item");
 
   currentIndex = item;

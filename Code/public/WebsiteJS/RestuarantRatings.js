@@ -58,7 +58,7 @@ function getRestaurantRatingASC() {
                           <h5 style="padding-left:30px;cursor:pointer" data-toggle="modal" data-target="#restuarantModal" class="card-title" item="' +
         count +
         '" onClick="showRestaurantdetails(this)">' +
-        Title +"("+Ratings +")"+
+        Title +"("+Ratings + '<div class="fa fa-star-o"></div>' + ")" +
         "</h5>"+ Description + "<p></p>"+ address +"<p></p>"+ openinghour+"</div>\
   </div>";
   

@@ -37,28 +37,6 @@ function addUserProfile(request,respond){
     })
 };
 
-//error do not used this!
-function UpdateUserProfile(request,respond){
-    var updateUserProfile = new Userdetails(request.body.FirstName, request.body.LastName, request.body.Gender
-    , request.body.Address, request.body.PhoneNumber, request.body.Email, bcrypt.hashSync(request.body.PassWord,10), request.body.UserProfilePictures, 
-    request.body.UserDescription, request.body.UserWallpaper, request.body.Token);
-    var owntoken = request.body.Token;
-    try {
-        var decoded = jwt.verify(owntoken,verysecret);
-        userprofileDB.UpdateUserProfile(updateUserProfile, function(error,result){
-            if(error){
-                respond.json(error);
-            }
-            else{
-                respond.json(result);
-            }
-        });
-    } catch (error) {
-        respond.json({result:"invaild token"});
-    }
-}
-
-
 function DeleteUserProfile(request,respond){
     var Deleteuserid = request.body.Deleteuserid;
     userprofileDB.DeleteUserProfile(Deleteuserid, function(error,result){
@@ -153,23 +131,7 @@ function NewUpdating(request,respond){
     }
 }
 
- function getspecific(request,respond){
-    var token = request.body.Token;
-    try {
-        var decoded = jwt.verify(token,verysecret);
-        userprofileDB.distinctImage(decoded, function(error,result){
-            if(error){
-                respond.json(console.log("failed"));
-            }
-            else{
-                respond.json(result);
-            }
-        });       
-    } catch (error) {
-        respond.json({result:"invaild token"});
-    }
-}
-
+ 
 
 ///////////////////////////////////////////////testing 
-module.exports={getAllUserProfile,addUserProfile,UpdateUserProfile,DeleteUserProfile,GetUserAuthentications,GetTokenUser,distinctImage,NewUpdating,getspecific};
+module.exports={getAllUserProfile,addUserProfile,DeleteUserProfile,GetUserAuthentications,GetTokenUser,distinctImage,NewUpdating};

@@ -39,8 +39,12 @@ function getReview(element) {
         
           var star = "";
           star += "<i class='far fa-trash-alt fa-2x edit' data-dismiss='modal' style='position:relative; left:30%; ' item='" + i + "' onClick='deleteReview(this)' ></i>";
-          star += "<i class='far fa-edit fa-2x edit' data-toggle='modal' data-target='#ReviewModal' data-dismiss='modal' style='position: relative; right:30%; top:-30px' item='" + i + "' onClick='editReview(this)' ></i>";
+          star += "<i class='far fa-edit fa-2x edit' data-toggle='modal' data-target='#editReviewModal' data-dismiss='modal' style='position: relative; right:30%; top:-30px' item='" + i + "' onClick='editReview(this)' ></i>";
           document.getElementById("rating" + i).insertAdjacentHTML('beforebegin', star + "<br/>");
       }
   }
 }
+
+
+
+

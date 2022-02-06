@@ -11,7 +11,6 @@ function getRestaurantDetails() {
     console.log(Restaurant_array); // output to console
     //call the function so as to display all movies tiles for "Now Showing"
     displayRestaurant(category);
-
   };
 
   //This command starts the calling of the movies web api
@@ -19,7 +18,7 @@ function getRestaurantDetails() {
 
   var Usertoken = sessionStorage.getItem("token");
   console.log(Usertoken);
-  
+
   if (Usertoken != null) {
     $("#registerMenu").hide();
     $("#LoginMeun").hide();
@@ -36,7 +35,7 @@ function getRestaurantDetails() {
       ImageProfile = display[0].UserProfilePictures;
       document.getElementById("displayImage").src = ImageProfile;
     };
-    var payload = { Token:Usertoken };
+    var payload = { Token: Usertoken };
     ProfileReview.send(JSON.stringify(payload));
   }
 }
@@ -45,7 +44,6 @@ function displayRestaurant() {
   var table = document.getElementById("RestaurantTable");
   var Restaurant_Count = 0;
   var message = "";
- 
 
   table.innerHTML = "";
   totalRestaurant = Restaurant_array.length; //display
@@ -54,7 +52,7 @@ function displayRestaurant() {
     var thumbnail = Restaurant_array[count].RestaurantImage;
     var Title = Restaurant_array[count].RestaurantTitle;
     var Ratings = Restaurant_array[count].Ratings;
-    var Description =Restaurant_array[count].RestaurantDescription;
+    var Description = Restaurant_array[count].RestaurantDescription;
     var address = Restaurant_array[count].RestaurantAddress;
     var openinghour = Restaurant_array[count].OpeningHourRestaurant;
     var cell =
@@ -67,15 +65,24 @@ function displayRestaurant() {
                         <h5 style="padding-left:30px;cursor:pointer" data-toggle="modal" data-target="#restuarantModal" class="card-title" item="' +
       count +
       '" onClick="showRestaurantdetails(this)">' +
-      Title +"("+Ratings + '<div class="fa fa-star-o"></div>' + ")" +
-      "</h5>"+ Description + "<p></p>"+ address +"<p></p>"+ openinghour+"</div>\
+      Title +
+      "(" +
+      Ratings +
+      '<div class="fa fa-star-o"></div>' +
+      ")" +
+      "</h5>" +
+      Description +
+      "<p></p>" +
+      address +
+      "<p></p>" +
+      openinghour +
+      "</div>\
 </div>";
 
     table.insertAdjacentHTML("beforeend", cell);
     Restaurant_Count++;
-    
 
-    message = howmany + " Restaurant singapore wide"; 
+    message = howmany + " Restaurant singapore wide";
     document.getElementById("summary").textContent = message;
     document.getElementById("parent").textContent = "";
   }
@@ -86,7 +93,8 @@ function displayRestaurant() {
 function showRestaurantdetails(element) {
   var item = element.getAttribute("item");
   currentIndex = item;
-  document.getElementById("Title").textContent = Restaurant_array[item].RestaurantTitle;
+  document.getElementById("Title").textContent =
+    Restaurant_array[item].RestaurantTitle;
   document.getElementById("RestaurantImage").src =
     Restaurant_array[item].RestaurantImage;
   document.getElementById("EthnicRestaurant").textContent =
@@ -103,3 +111,11 @@ function showRestaurantdetails(element) {
   document.getElementById("trailer2").src = Restaurant_array[item].video2;
 }
 
+function showPassword(){
+  var x = document.getElementById("passwordlogin");
+  if (x.type === "passwordlogin") {
+    x.type = "text";
+  } else {
+    x.type = "passwordlogin";
+  }
+}
